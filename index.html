@@ -8,7 +8,7 @@
 :root{--bg:#f4f6f8;--paper:#fff;--ink:#17212b;--muted:#697582;--line:#dfe5ea;--accent:#204a63;--accent2:#6f8796;--good:#176b52;--warn:#9a6416;--bad:#9a3b3b}
 *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
 .wrap{max-width:1440px;margin:auto;padding:36px 24px 72px} header{background:linear-gradient(135deg,#17394d,#285e79);color:white;padding:42px;border-radius:20px;margin-bottom:22px}
-header h1{font-size:34px;line-height:1.15;margin:0 0 10px} header p{max-width:1040px;margin:0;color:#e6eef3;font-size:16px}
+header h1{font-size:34px;line-height:1.15;margin:0 0 10px} header p{max-width:1060px;margin:0;color:#e6eef3;font-size:16px}
 .kicker{font-size:12px;text-transform:uppercase;letter-spacing:.12em;opacity:.8;margin-bottom:10px}
 .card,.school-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px;margin:18px 0;box-shadow:0 2px 12px rgba(20,40,55,.04)}
 h2{font-size:24px;margin:0 0 14px} h3{display:inline;font-size:22px;margin:0} h4{font-size:15px;margin:14px 0 8px}
@@ -16,11 +16,11 @@ p{margin:8px 0 14px} .muted{color:var(--muted);font-size:13px} .tiny{font-size:1
 .formula{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#edf3f6;padding:14px 16px;border-radius:10px;font-weight:700}
 .weights{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0} .weights>div{border:1px solid var(--line);border-radius:12px;padding:14px} .weights strong{font-size:24px;display:block;color:var(--accent)}
 .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px} table{border-collapse:collapse;width:100%} th,td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top} th{text-align:left;background:#f5f8fa;font-size:12px;white-space:nowrap;position:sticky;top:0} tr:last-child td{border-bottom:0}
-.rank{font-size:20px;font-weight:800;color:var(--accent)} .scorecell{min-width:92px} .scorecell strong{font-variant-numeric:tabular-nums}
+.rank{font-size:20px;font-weight:800;color:var(--accent)} .scorecell{min-width:88px} .scorecell strong{font-variant-numeric:tabular-nums}
 .bar{height:5px;background:#e7edf1;border-radius:10px;margin-top:5px;overflow:hidden} .bar span{display:block;height:100%;background:var(--accent);border-radius:10px}
 .school-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:16px}
 .rank-pill{display:inline-block;margin-right:8px;background:#eaf1f5;color:var(--accent);font-weight:800;padding:4px 8px;border-radius:7px}
-.big-score{font-size:34px;font-weight:800;text-align:right;color:var(--accent)} .big-score span{font-size:15px;color:var(--muted)} .big-score small{display:block;font-size:11px;color:var(--muted);font-weight:600}
+.big-score{font-size:34px;font-weight:800;text-align:right;color:var(--accent);white-space:nowrap} .big-score span{font-size:15px;color:var(--muted)} .big-score small{display:block;font-size:11px;color:var(--muted);font-weight:600}
 .verdict{font-size:16px;margin:16px 0}
 .metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:12px 0 4px} .metrics>div{background:#f7f9fa;border-radius:10px;padding:12px} .metrics span,.metrics small{display:block;color:var(--muted);font-size:11px} .metrics strong{font-size:22px}
 .callout{border-left:4px solid var(--accent);padding:12px 15px;background:#f0f5f7;border-radius:8px}
@@ -31,102 +31,133 @@ ul{padding-left:20px}
 @media(max-width:900px){.weights,.metrics,.method-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:620px){.weights,.metrics,.method-grid{grid-template-columns:1fr}header{padding:28px}}
 @media print{body{background:white}.wrap{max-width:none;padding:0}header,.card,.school-card{box-shadow:none;break-inside:avoid}}
-
 .subscore-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
 .score-detail{border:1px solid var(--line);border-radius:9px;overflow:hidden}
 .score-detail td:last-child,.score-detail th:last-child{text-align:right;font-variant-numeric:tabular-nums}
 .score-detail td:nth-child(2),.score-detail th:nth-child(2){text-align:center;color:var(--muted);white-space:nowrap}
 @media(max-width:900px){.subscore-grid{grid-template-columns:1fr}}
-
+.newbadge{display:inline-block;background:#176b52;color:#fff;font-size:10px;font-weight:800;letter-spacing:.06em;padding:2px 7px;border-radius:6px;vertical-align:middle;margin-left:6px}
+.alert{border-left:5px solid var(--warn);background:#fdf6ea;border-radius:10px;padding:16px 18px;margin:14px 0}
+.alert.red{border-left-color:var(--bad);background:#fbeeee}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+.tiers>div{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfcfd}
+.tiers h4{margin:0 0 6px} .tiers p{margin:0;font-size:12.5px;color:var(--muted)}
+@media(max-width:820px){.tiers{grid-template-columns:1fr 1fr}}
+.lgsbox{border-left:5px solid var(--accent);border-radius:8px;padding:12px 15px;margin:14px 0}
+.lgsbox h4{margin:0 0 6px;font-size:13.5px} .lgsbox p{margin:0;font-size:13.5px;line-height:1.55}
+.verify{margin-top:6px;border:1px solid var(--line);border-radius:12px;background:#fafcfd;padding:14px 16px}
+.verify h4{margin:0 0 10px}
+.vlist{list-style:none;padding:0;margin:0} .vlist li{margin:0 0 9px;font-size:13.5px;line-height:1.5}
+.vb{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;margin-right:6px;white-space:nowrap}
+.srcline{font-size:12px;color:var(--muted);margin:10px 0 0} .srcline a{color:var(--accent)}
+.srcblock{border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0;background:#fbfcfd}
+.srcblock h4{margin:0 0 6px;color:var(--accent)} .srcblock ul{margin:0;padding-left:18px} .srcblock li{font-size:12.5px;margin:3px 0} .srcblock a{color:var(--accent);word-break:break-word}
+a{color:var(--accent)}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
-<div class="kicker">Ankara · 2026–2027 · Anaokulu + 5. sınıf referans</div>
+<div class="kicker">Ankara · 2026–2027 · Anaokulu + 5. sınıf referans ailesi</div>
 <h1>Özel Okul Rasyonellik Raporu</h1>
-<p>Güney-batı Ankara odağında, en az 10 yıllık kurum/kampüs geçmişine sahip ve hem anaokulu hem ortaokul sunan özel okullar; LGS başarısı, kişisel gelişim, akademik baskı, sosyo-kültürel ekosistem, kampüsün fiziksel olanakları ve gerçek aile maliyeti birlikte değerlendirilerek sıralanmıştır.</p>
+<p>Güney-batı Ankara odağında, en az 10 yıllık kurum ve en az 6 yıllık kampüs geçmişine sahip, hem anaokulu hem ortaokul sunan 15 özel okul; LGS başarısı, kişisel gelişim, akademik baskı, sosyo-kültürel ekosistem, kampüsün fiziki olanakları ve gerçek aile maliyeti birlikte değerlendirilerek sıralanmıştır. LGS başarısı, son 5 yılın (2021–2026) yerel/ulusal haberleri ve okul açıklamaları taranarak kanıt temelinde çıkarımlanmıştır.</p>
 </header>
 
 <section class="card">
 <h2>Raporun amacı ve kapsamı</h2>
-<p>Bu çalışma “en prestijli okul hangisi?” sorusuna değil, <strong>iki çocuklu bir aile için en rasyonel okul hangisi?</strong> sorusuna cevap vermek üzere hazırlandı. Bu nedenle yalnız akademik başarı değil; çocuğun sosyal, duygusal ve kültürel gelişimi, okulun yarattığı akran/veli çevresi ve ailenin gerçek yıllık maliyet yükü de hesaba katıldı.</p>
-<p class="callout"><strong>Dahil edilme kriterleri:</strong> en az 10 yıllık kurum veya Ankara kampüs geçmişi; hem anaokulu hem ortaokul bulunması; Ankara’nın güney-batı aksında veya yakınında yer alma; aile açısından anlamlı ve karşılaştırılabilir bir okul alternatifi olma. Gökkuşağı Ankara bu sürümde 10 yıl kriteri doğrulanamadığı için listede değildir.</p>
+<p>Bu çalışma “en prestijli okul hangisi?” sorusuna değil, <strong>iki çocuklu bir aile için en rasyonel okul hangisi?</strong> sorusuna cevap arar. Yalnız akademik başarı değil; çocuğun sosyal, duygusal ve kültürel gelişimi, okulun yarattığı akran/veli çevresi ve ailenin gerçek yıllık maliyet yükü birlikte değerlendirilir.</p>
+<p class="callout"><strong>Dahil edilme kriterleri:</strong> <strong>en az 10 yıllık kurum (marka) geçmişi</strong> ve <strong>en az 6 yıllık Ankara kampüsü</strong>; hem anaokulu hem ortaokul; Ankara'nın güney-batı aksında veya yakınında olma; aile açısından anlamlı ve karşılaştırılabilir bir alternatif olma. Bu kural gereği <strong>Bilnet</strong> (marka yalnız 2017, &lt;10 yıl) ve <strong>Gökkuşağı Ankara</strong> (Alacaatlı kampüsü 2022, &lt;6 yıl) listede değildir; <strong>Bahçeşehir Çayyolu</strong> ve <strong>Bilfen Çayyolu</strong> ise kriterleri karşıladığı için eklenmiştir.</p>
+</section>
+
+<section class="card">
+<h2>LGS başarısı nasıl çıkarımlandı?</h2>
+<div class="alert red">
+<h4>Yapısal gerçek</h4>
+<p style="margin:0">Türkiye'de MEB, ortaokullar için <strong>okul bazında LGS ortalaması yayımlamaz</strong>; KVKK gereği 500 tam puan alan öğrenciler yalnız il düzeyinde, okul adı verilmeden açıklanır. Bağımsız Ankara haberlerinde adı geçen LGS şampiyonları neredeyse tümüyle <strong>devlet ortaokullarıdır</strong>. Bu yüzden her özel okulun LGS gücü, (a) okulun kendi “başarılarımız” açıklamaları ve (b) seyrek yerel haberler taranarak yeniden inşa edilmiştir. Aşağıdaki LGS puanları <strong>bu kanıt temelli çıkarımlardır</strong> — resmi ölçüm değil. Her okul kartında “LGS kanıtı” kutusu, o okul için ne bulunduğunu gösterir.</p>
+</div>
+<div class="tiers">
+<div><h4 style="color:#176b52">Kanıtlı</h4><p>Bağımsız ve/veya tekrarlı 500 tam puan / Türkiye derecesi. <b>Jale Tezer, TED Ankara.</b></p></div>
+<div><h4 style="color:#2a556e">Güçlü itibar</h4><p>Köklü, sürekli LGS pazarlaması / yüzdelik kanıtı; sayı çoğu kez öz-beyan. <b>Nesibe Aydın, ODTÜ GVO, MEV, Beştepe.</b></p></div>
+<div><h4 style="color:#5b4b8a">Farklı eksen</h4><p>LGS'ye tasarım gereği girmiyor (IB/AP/üniversite/STEAM). <b>İDV Bilkent, Yüce, Zafer, Arı.</b></p></div>
+<div><h4 style="color:#9a6416">Kanıt yok</h4><p>Genç kampüs ya da yalnız zincir-toplamı rakam; kampüse özel kanıt yok. <b>Maya, ANKÜ, Bahçeşehir İncek/Çayyolu, Bilfen Çayyolu.</b></p></div>
+</div>
+<p class="tiny" style="margin-top:12px">Not: Tam-puan sayıları büyük okulların lehinedir; küçük bir okulun tek tam puanı per-capita daha güçlü olabilir. Zincir okulların (Bahçeşehir, Bilfen) ulusal “X Türkiye birincisi” rakamları ~yüzlerce kampüsün toplamıdır ve tek bir Ankara kampüsüne atfedilemez.</p>
 </section>
 
 <section class="card">
 <h2>Rapor nasıl hazırlandı?</h2>
 <div class="method-grid">
-<div><h4>1. Gerçek maliyet</h4><p>Sadece ilan edilen eğitim ücreti kullanılmadı. Mümkün olduğunda <strong>eğitim + yemek + servis + etüt + kitap/kırtasiye</strong> toplamı esas alındı. Birinci elden alınan teklifler en yüksek güven seviyesinde kabul edildi.</p></div>
-<div><h4>2. LGS</h4><p>Akademik başarı kriteri yalnız LGS üzerinden tanımlandı. Tekil “Türkiye birincisi” haberleri okul genelinin başarısına eşit sayılmadı; toplu yüzdelik/ortalama bilgisi varsa daha yüksek ağırlık verildi.</p></div>
-<div><h4>3. Kişisel gelişim</h4><p>Okulun sunduğu sosyal, sanatsal, sportif, akademik olmayan gelişim fırsatları ve bireysel öğrenci takibi ayrı alt kriterlerde değerlendirildi. Fiziksel kampüs bu skorun bir alt bileşeni olarak eklendi.</p></div>
-<div><h4>4. Akademik baskı</h4><p>Yoğun deneme, etüt, ödev ve rekabet kültürü kişisel gelişimden ayrı bir <strong>ceza</strong> olarak düşüldü. Önceki sürümlere göre ceza 1,5× daha güçlü uygulanmaktadır.</p></div>
-<div><h4>5. Sosyo-kültürel ortam</h4><p>Veliler bireysel olarak sınıflandırılmadı. Okulun ücret bariyeri, burs sistemi, üniversite bağlantısı ve ekonomik filtresinin nasıl bir aile/akran topluluğu oluşturma eğiliminde olduğu değerlendirildi.</p></div>
-<div><h4>6. Veri güveni</h4><p>Birinci el teklif ve resmi okul verileri, internet üzerindeki tahmini/ikincil bilgilerden daha yüksek öncelikte tutuldu. Eksik verilerde skorlar temkinli verildi.</p></div>
+<div><h4>1. Gerçek maliyet</h4><p>İlan edilen eğitim ücreti değil; mümkün olduğunda <strong>eğitim + yemek + servis + etüt + kitap</strong> toplamı esas alındı. Birinci elden alınan teklifler en yüksek güven seviyesinde kabul edildi; tahmini kalemler kamuya açık 2026–27 verisiyle kontrol edildi.</p></div>
+<div><h4>2. LGS</h4><p>Son 5 yılın haberleri ve okul açıklamaları tarandı; kampüse özel kanıt, zincir-toplamı rakamlardan ayrıştırıldı. Tekil “Türkiye birincisi” haberi okul geneline eşitlenmedi.</p></div>
+<div><h4>3. Kişisel gelişim</h4><p>Sosyal, sanatsal, sportif ve akademik olmayan gelişim fırsatları ile bireysel takip alt kriterlerde değerlendirildi. Fiziksel kampüs bu skorun %10'u.</p></div>
+<div><h4>4. Akademik baskı</h4><p>Yoğun deneme, etüt, ödev ve rekabet kültürü kişisel gelişimden ayrı bir <strong>ceza</strong> olarak 1,5× katsayıyla düşüldü.</p></div>
+<div><h4>5. Sosyo-kültürel ortam</h4><p>Okulun ücret bariyeri, burs sistemi, üniversite bağlantısı ve ekonomik filtresinin nasıl bir aile/akran topluluğu oluşturduğu değerlendirildi.</p></div>
+<div><h4>6. Veri güveni</h4><p>Birinci el teklif ve resmi okul verileri, internet üzerindeki tahmini/ikincil bilgilerden yüksek öncelikte tutuldu. Eksik verilerde skorlar temkinli verildi.</p></div>
 </div>
 </section>
 
 <section class="card">
 <h2>Skorlama modeli</h2>
-<div class="formula">Rasyonellik = %35 LGS + %30 Düzeltilmiş Kişisel Gelişim + %20 Sosyo-kültürel Ekosistem + %15 Maliyet Rasyonalitesi</div>
+<div class="formula">Rasyonellik = %30 LGS + %27 Düzeltilmiş Kişisel Gelişim + %18 Sosyo-kültürel Ekosistem + %25 Maliyet Rasyonalitesi</div>
 <div class="weights">
-<div><strong>35%</strong>LGS başarısı</div><div><strong>30%</strong>Kişisel gelişim</div><div><strong>20%</strong>Sosyo-kültürel ekosistem</div><div><strong>15%</strong>Maliyet rasyonalitesi</div>
+<div><strong>30%</strong>LGS başarısı</div><div><strong>27%</strong>Kişisel gelişim</div><div><strong>18%</strong>Sosyo-kültürel ekosistem</div><div><strong>25%</strong>Maliyet rasyonalitesi</div>
 </div>
-<p><strong>Eğitim skoru</strong> ayrıca gösterilir ve ücreti doğrudan içermez: %40 LGS + %40 düzeltilmiş kişisel gelişim + %20 sosyo-kültürel ekosistem.</p>
+<p><strong>Maliyet ağırlığı bu sürümde %15'ten %25'e çıkarılmıştır</strong> ve maliyet her okulda <strong>tahmini all-in (2 çocuk: eğitim + yemek + servis) tutarı üzerinden</strong> puanlanır — yalnız ilan edilen eğitim ücreti üzerinden değil. Örneğin ODTÜ, 1,7 M ₺'lik eğitim ücreti değil ~2,0–2,2 M ₺'lik all-in üzerinden skorlanmıştır. <strong>Eğitim skoru</strong> ayrıca gösterilir ve ücreti içermez: %40 LGS + %40 düzeltilmiş kişisel gelişim + %20 sosyo-kültürel. Akademik baskı cezası 1,5× katsayıyla uygulanır; fiziksel kampüs kişisel gelişimin %10'udur.</p>
+<div class="alert"><h4>Akademik baskı puanlaması — ODTÜ ve Maya örneği</h4><p style="margin:0">Baskı cezası, akademik hedeflerin diğer gelişim alanlarını ne kadar aşındırdığını ölçer. <strong>Maya (−0,20)</strong> setin en düşük cezasını alır: kurumsal kimliği kurucusu Ziya Selçuk'un “Bütüncül Gelişim Modeli”dir, resmen “yalnız akademiye odaklanmadığını” beyan eder, yerleşik bir deneme/etüt-drill kültürü yoktur ve yüksek puanlı öğrenciyi <strong>burs ile çeker</strong>, sınav-baskısıyla üretmez. <strong>ODTÜ (−0,30)</strong> ise akademik olarak daha yoğun bir kohort kültürü taşır (kohortun tümünün yüksek yüzdelik alması modeli, sistematik akademik ivme demektir); bu yüzden Maya'dan bir tık daha yüksek ceza alır. Kısacası: <strong>Maya < ODTÜ</strong> — Maya daha düşük baskılı.</p></div>
+<div class="alert"><h4>Okuma notu</h4><p style="margin:0">Bu puanlar bir <strong>karar-destek indeksidir, kesin bir kalite ölçüsü değildir</strong>. LGS ekseni doğası gereği IB/üniversite odaklı okulları (Bilkent, Yüce, Zafer) düşük gösterir — bu okullar farklı bir eksende yarışır ve kartlarında bu açıkça belirtilmiştir. Okul ziyaretlerinde gerçek 8. sınıf deneme/ödev yükü, öğretmen sirkülasyonu ve yazılı ücret teklifi alınırsa skorlar yeniden hesaplanmalıdır.</p></div>
 </section>
 
 <section class="card">
 <h2>Kriterler ve tüm alt kriterlerin açıklamaları</h2>
-
-<h4>1. LGS başarısı — ana ağırlık %35</h4><p class="callout"><strong>LGS için okul bazında uydurma alt puan üretilmemiştir.</strong> Okullar sonuçlarını aynı formatta yayımlamadığı için LGS, mevcut 500 tam puan / yüzdelik dilim / ortalama / süreklilik kanıtlarının birlikte yorumlandığı tek bir bileşik skor olarak gösterilir. Diğer üç ana kriterin bütün alt kriter puanları ise aşağıdaki okul kartlarında tek tek verilmiştir.</p>
+<h4>1. LGS başarısı — ana ağırlık %30</h4>
+<p class="callout"><strong>LGS için okul bazında uydurma alt puan üretilmemiştir.</strong> Okullar sonuçlarını aynı formatta yayımlamadığı için LGS, son 5 yılın haber/açıklama kanıtlarının birlikte yorumlandığı tek bir bileşik skor olarak gösterilir (kanıt seviyesi her kartta belirtilir). Diğer üç ana kriterin tüm alt kriter puanları okul kartlarında tek tek verilmiştir.</p>
 <table class="mini">
 <thead><tr><th>Alt kriter</th><th>Açıklama</th></tr></thead>
 <tbody>
-<tr><td>500 tam puan / Türkiye birinciliği</td><td>Üst düzey akademik kapasite göstergesidir; ancak tek başına okul geneline genellenmez.</td></tr>
+<tr><td>500 tam puan / Türkiye birinciliği</td><td>Üst düzey akademik kapasite göstergesidir; tek başına okul geneline genellenmez.</td></tr>
 <tr><td>İlk %1 öğrenci oranı</td><td>Okulun yalnız birkaç yıldız öğrenci değil, geniş bir yüksek başarı grubu üretip üretmediğini gösterir.</td></tr>
 <tr><td>İlk %5 / %10 öğrenci oranı</td><td>Ortaokulun genel akademik derinliğini ve sınıf genelindeki başarı dağılımını anlamaya yardımcı olur.</td></tr>
-<tr><td>Okul LGS ortalaması / ortalama yüzdelik</td><td>En güçlü karşılaştırma göstergelerinden biridir; mevcutsa tekil başarı haberlerinden daha değerli kabul edilir.</td></tr>
+<tr><td>Okul LGS ortalaması / yüzdelik</td><td>En güçlü karşılaştırma göstergelerinden biridir; mevcutsa tekil başarı haberlerinden daha değerli kabul edilir.</td></tr>
 <tr><td>Veri sürekliliği</td><td>Tek bir yıl yerine son birkaç yılda benzer sonuçların görülmesi daha yüksek güven yaratır.</td></tr>
 </tbody>
 </table>
 
-<h4>2. Kişisel gelişim — ana ağırlık %30</h4>
+<h4>2. Kişisel gelişim — ana ağırlık %27</h4>
 <table class="mini">
 <thead><tr><th>Alt kriter</th><th>Ağırlık</th><th>Açıklama</th></tr></thead>
 <tbody>
 <tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td>Psikolojik danışmanlık, bireysel öğrenci takibi, akran ilişkileri, zorbalık önleme, özfarkındalık ve duygusal dayanıklılık.</td></tr>
 <tr><td>Spor</td><td>13,5%</td><td>Spor çeşitliliği kadar öğrencinin gerçekten düzenli spor yapabilmesi, okul takımları ve farklı branşlara erişimi.</td></tr>
 <tr><td>Sanat & yaratıcılık</td><td>13,5%</td><td>Müzik, enstrüman, tiyatro/drama, görsel sanatlar, dans, sahne deneyimi ve öğrencinin üretim yapabilmesi.</td></tr>
-<tr><td>Kulüp & extracurricular</td><td>13,5%</td><td>MUN, FLL/robotik, münazara, satranç, bilim, sosyal sorumluluk ve benzeri alanların yalnız broşürde değil aktif olarak işletilmesi.</td></tr>
-<tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td>P4C, proje tabanlı öğrenme, maker/STEAM, araştırma, tasarım ve öğrencinin hazır cevaptan ziyade çözüm üretmesine alan açılması.</td></tr>
-<tr><td>Bireyselleştirme & yetenek keşfi</td><td>9%</td><td>Mentorluk, güçlü-zayıf yön takibi, bireysel hedefler ve öğrencinin özgün ilgi/yetenek alanlarının fark edilip desteklenmesi.</td></tr>
-<tr><td>İletişim & liderlik</td><td>4,5%</td><td>Sunum, topluluk önünde konuşma, öğrenci konseyi, ekip yönetimi ve liderlik sorumluluğu alma fırsatları.</td></tr>
-<tr><td>Sosyal sorumluluk & dünya görüşü</td><td>4,5%</td><td>Gönüllülük, çevre, farklı kültürlerle temas, toplumsal projeler ve öğrencinin dünyaya daha geniş bir perspektiften bakmasını sağlayan faaliyetler.</td></tr>
-<tr><td><strong>Kampüsün fiziki şartları</strong></td><td><strong>10%</strong></td><td>Açık/kapalı spor alanları, yüzme havuzu, fen/teknoloji laboratuvarları, sanat ve müzik alanları, sahne/tiyatro, kütüphane, atölye, yeşil alan ve bunların günlük öğrenci kullanımına uygunluğu. Sadece bina büyüklüğü veya gösterişli tesis puan için yeterli değildir.</td></tr>
+<tr><td>Kulüp & extracurricular</td><td>13,5%</td><td>MUN, FLL/robotik, münazara, satranç, bilim, sosyal sorumluluk gibi alanların yalnız broşürde değil aktif işletilmesi.</td></tr>
+<tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td>P4C, proje tabanlı öğrenme, maker/STEAM, araştırma, tasarım ve öğrencinin çözüm üretmesine alan açılması.</td></tr>
+<tr><td>Bireyselleştirme & yetenek keşfi</td><td>9%</td><td>Mentorluk, güçlü-zayıf yön takibi, bireysel hedefler ve özgün ilgi/yetenek alanlarının desteklenmesi.</td></tr>
+<tr><td>İletişim & liderlik</td><td>4,5%</td><td>Sunum, topluluk önünde konuşma, öğrenci konseyi, ekip yönetimi ve liderlik sorumluluğu.</td></tr>
+<tr><td>Sosyal sorumluluk & dünya görüşü</td><td>4,5%</td><td>Gönüllülük, çevre, farklı kültürlerle temas, toplumsal projeler ve geniş perspektif.</td></tr>
+<tr><td><strong>Kampüsün fiziki şartları</strong></td><td><strong>10%</strong></td><td>Spor alanları, havuz, laboratuvarlar, sanat/müzik alanları, sahne, kütüphane, atölye, yeşil alan ve bunların günlük kullanıma uygunluğu.</td></tr>
 </tbody>
 </table>
-
 <h4>Akademik baskı cezası</h4>
-<p>Ham kişisel gelişim skorundan ayrıca düşülür ve bu raporda <strong>1,5× katsayı</strong> ile uygulanır. Haftalık yoğun deneme sınavları, sürekli etüt/ödev döngüsü, şubeler arası rekabet dili, 7–8. sınıfta spor/sanat zamanının akademik hazırlık lehine daralması ve öğrencinin serbest zamanının azalması cezayı yükseltir. Güçlü akademik takip tek başına ceza değildir; cezalandırılan şey akademik hedeflerin diğer gelişim alanlarını aşındırmasıdır.</p>
+<p>Ham kişisel gelişim skorundan <strong>1,5× katsayı</strong> ile düşülür. Haftalık yoğun deneme sınavları, sürekli etüt/ödev döngüsü, şubeler arası rekabet dili, 7–8. sınıfta spor/sanat zamanının daralması cezayı yükseltir. Güçlü akademik takip tek başına ceza değildir; cezalandırılan şey akademik hedeflerin diğer gelişim alanlarını aşındırmasıdır.</p>
 
-<h4>3. Sosyo-kültürel ekosistem — ana ağırlık %20</h4>
+<h4>3. Sosyo-kültürel ekosistem — ana ağırlık %18</h4>
 <table class="mini">
 <thead><tr><th>Alt kriter</th><th>Ağırlık</th><th>Açıklama</th></tr></thead>
 <tbody>
-<tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td>Akademisyen, mühendis, doktor, öğretmen, araştırmacı ve benzeri eğitim yoğun mesleklerden ailelerin olası ağırlığı; üniversite bağlantısının oluşturduğu çevre.</td></tr>
-<tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td>Okulun yalnız çok yüksek gelir grubuna kapanmaması; eğitimli profesyonel/orta-üst gelir ailelerin de gerçekçi biçimde erişebilmesi.</td></tr>
-<tr><td>Burs / erişilebilirlik</td><td>20%</td><td>Başarı bursu, çalışan/akademisyen/mezun indirimi, kardeş indirimi gibi araçlarla ücret bariyerinin ne kadar aşılabildiği.</td></tr>
-<tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td>Yüksek skor, marka, statü ve tüketimin çocuklar/veliler arası ilişkilerde belirleyici hale gelme riskinin görece düşük olduğu anlamına gelir.</td></tr>
+<tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td>Akademisyen, mühendis, doktor, öğretmen, araştırmacı gibi eğitim yoğun mesleklerden ailelerin olası ağırlığı; üniversite bağlantısı.</td></tr>
+<tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td>Okulun yalnız çok yüksek gelir grubuna kapanmaması; eğitimli profesyonel/orta-üst gelir ailelerin de erişebilmesi.</td></tr>
+<tr><td>Burs / erişilebilirlik</td><td>20%</td><td>Başarı bursu, çalışan/akademisyen/mezun indirimi, kardeş indirimi gibi araçlarla ücret bariyerinin aşılabilirliği.</td></tr>
+<tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td>Marka, statü ve tüketimin çocuklar/veliler arası ilişkilerde belirleyici hale gelme riskinin görece düşüklüğü.</td></tr>
 </tbody>
 </table>
 
-<h4>4. Maliyet rasyonalitesi — ana ağırlık %15</h4>
+<h4>4. Maliyet rasyonalitesi — ana ağırlık %25</h4>
 <table class="mini">
 <thead><tr><th>Alt kriter</th><th>Ağırlık</th><th>Açıklama</th></tr></thead>
 <tbody>
-<tr><td>Toplam maliyet yükü</td><td>50%</td><td>1 anaokulu + 1 yeni 5. sınıf için eğitim, yemek, servis, etüt ve kitap/kırtasiye dahil yıllık gerçek aile yükü.</td></tr>
-<tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td>Ödenen ücret karşılığında LGS, kişisel gelişim, kampüs ve sosyo-kültürel ortamda ne kadar güçlü paket sunulduğu.</td></tr>
-<tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td>Yan giderlerin açık olması, zorunlu kalemlerin sonradan sürpriz yaratmaması ve yıllık maliyetin aile tarafından öngörülebilir olması.</td></tr>
+<tr><td>Toplam maliyet yükü</td><td>50%</td><td>1 anaokulu + 1 yeni 5. sınıf için eğitim, yemek, servis, etüt ve kitap dahil yıllık gerçek aile yükü.</td></tr>
+<tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td>Ödenen ücret karşılığında LGS, kişisel gelişim, kampüs ve sosyo-kültürel ortamda sunulan paketin gücü.</td></tr>
+<tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td>Yan giderlerin açık olması, zorunlu kalemlerin sürpriz yaratmaması ve yıllık maliyetin öngörülebilirliği.</td></tr>
 </tbody>
 </table>
 </section>
@@ -139,449 +170,645 @@ ul{padding-left:20px}
 <tbody>
     <tr>
       <td class="rank">1</td>
-      <td><strong>Maya İncek</strong><div class="muted">İncek</div></td>
-      <td><div class="scorecell"><strong>8.76</strong><div class="bar"><span style="width:87.6%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.80</strong><div class="bar"><span style="width:88.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.90</strong><div class="bar"><span style="width:89.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.74</strong><div class="bar"><span style="width:87.4%"></span></div></div><div class="tiny">baskı −0,60</div></td>
-      <td><div class="scorecell"><strong>8.80</strong><div class="bar"><span style="width:88.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.63</strong><div class="bar"><span style="width:86.3%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.70</strong><div class="bar"><span style="width:87.0%"></span></div></div></td>
-      <td><strong>~1,10 M ₺</strong><div class="tiny">Yüksek — birinci elden</div></td>
+      <td><strong>Maya İncek</strong><div class="muted">İncek (Gölbaşı)</div></td>
+      <td><div class="scorecell"><strong>8.05</strong><div class="bar"><span style="width:80.5%"></span></div></div></td><td><div class="scorecell"><strong>7.90</strong><div class="bar"><span style="width:79.0%"></span></div></div></td>
+      <td><div class="scorecell"><strong>6.30</strong><div class="bar"><span style="width:63.0%"></span></div></div><div class="tiny" style="color:#9a6416">Kanıt yok · genç/zincir</div></td>
+      <td><div class="scorecell"><strong>9.14</strong><div class="bar"><span style="width:91.4%"></span></div></div><div class="tiny">baskı −0,20</div></td>
+      <td><div class="scorecell"><strong>8.80</strong><div class="bar"><span style="width:88.0%"></span></div></div></td><td><div class="scorecell"><strong>8.63</strong><div class="bar"><span style="width:86.3%"></span></div></div></td><td><div class="scorecell"><strong>8.57</strong><div class="bar"><span style="width:85.7%"></span></div></div></td>
+      <td><strong>~1,10 M ₺ all-in</strong><div class="tiny">Yüksek — birinci elden</div></td>
     </tr>
     <tr>
       <td class="rank">2</td>
-      <td><strong>ODTÜ GVO</strong><div class="muted">ODTÜ</div></td>
-      <td><div class="scorecell"><strong>8.55</strong><div class="bar"><span style="width:85.5%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.95</strong><div class="bar"><span style="width:89.5%"></span></div></div></td>
-      <td><div class="scorecell"><strong>9.00</strong><div class="bar"><span style="width:90.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.97</strong><div class="bar"><span style="width:89.7%"></span></div></div><div class="tiny">baskı −0,30</div></td>
-      <td><div class="scorecell"><strong>9.20</strong><div class="bar"><span style="width:92.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.80</strong><div class="bar"><span style="width:88.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>6.42</strong><div class="bar"><span style="width:64.2%"></span></div></div></td>
-      <td><strong>~1,6–1,7 M ₺</strong><div class="tiny">Orta — Bilkent seviyesine yakın</div></td>
+      <td><strong>MEV Ankara</strong><div class="muted">Koru / Çayyolu, Çankaya</div></td>
+      <td><div class="scorecell"><strong>7.95</strong><div class="bar"><span style="width:79.5%"></span></div></div></td><td><div class="scorecell"><strong>7.74</strong><div class="bar"><span style="width:77.4%"></span></div></div></td>
+      <td><div class="scorecell"><strong>7.30</strong><div class="bar"><span style="width:73.0%"></span></div></div><div class="tiny" style="color:#2a556e">Güçlü itibar · öz-beyan</div></td>
+      <td><div class="scorecell"><strong>7.89</strong><div class="bar"><span style="width:78.9%"></span></div></div><div class="tiny">baskı −0,60</div></td>
+      <td><div class="scorecell"><strong>8.20</strong><div class="bar"><span style="width:82.0%"></span></div></div></td><td><div class="scorecell"><strong>8.31</strong><div class="bar"><span style="width:83.1%"></span></div></div></td><td><div class="scorecell"><strong>8.53</strong><div class="bar"><span style="width:85.3%"></span></div></div></td>
+      <td><strong>~0,9–1,1 M ₺ all-in</strong><div class="tiny">Orta-Yüksek — okulun kendi fiyat listesi</div></td>
     </tr>
     <tr>
       <td class="rank">3</td>
-      <td><strong>İDV Bilkent</strong><div class="muted">Bilkent</div></td>
-      <td><div class="scorecell"><strong>8.39</strong><div class="bar"><span style="width:83.9%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.73</strong><div class="bar"><span style="width:87.3%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.70</strong><div class="bar"><span style="width:87.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.76</strong><div class="bar"><span style="width:87.6%"></span></div></div><div class="tiny">baskı −0,30</div></td>
-      <td><div class="scorecell"><strong>8.80</strong><div class="bar"><span style="width:88.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.81</strong><div class="bar"><span style="width:88.1%"></span></div></div></td>
-      <td><div class="scorecell"><strong>6.52</strong><div class="bar"><span style="width:65.2%"></span></div></div></td>
-      <td><strong>~1,70 M ₺</strong><div class="tiny">Yüksek — birinci elden</div></td>
+      <td><strong>Jale Tezer</strong> <span class="newbadge">YENİ</span><div class="muted">Çayyolu (Koru / Ümitköy)</div></td>
+      <td><div class="scorecell"><strong>7.83</strong><div class="bar"><span style="width:78.3%"></span></div></div></td><td><div class="scorecell"><strong>8.10</strong><div class="bar"><span style="width:81.0%"></span></div></div></td>
+      <td><div class="scorecell"><strong>8.70</strong><div class="bar"><span style="width:87.0%"></span></div></div><div class="tiny" style="color:#176b52">Kanıtlı · bağımsız/tekrarlı</div></td>
+      <td><div class="scorecell"><strong>7.40</strong><div class="bar"><span style="width:74.0%"></span></div></div><div class="tiny">baskı −1,20</div></td>
+      <td><div class="scorecell"><strong>8.30</strong><div class="bar"><span style="width:83.0%"></span></div></div></td><td><div class="scorecell"><strong>8.30</strong><div class="bar"><span style="width:83.0%"></span></div></div></td><td><div class="scorecell"><strong>6.92</strong><div class="bar"><span style="width:69.2%"></span></div></div></td>
+      <td><strong>~1,4–1,6 M ₺ all-in (tahmini)</strong><div class="tiny">Düşük — 2026–27 ücret kamuya kapalı; akademik akran tahmini</div></td>
     </tr>
     <tr>
       <td class="rank">4</td>
-      <td><strong>ANKÜ GVO</strong><div class="muted">Ahlatlıbel / İncek</div></td>
-      <td><div class="scorecell"><strong>8.36</strong><div class="bar"><span style="width:83.6%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.50</strong><div class="bar"><span style="width:85.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.50</strong><div class="bar"><span style="width:85.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.16</strong><div class="bar"><span style="width:81.6%"></span></div></div><div class="tiny">baskı −0,45</div></td>
-      <td><div class="scorecell"><strong>8.40</strong><div class="bar"><span style="width:84.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>9.09</strong><div class="bar"><span style="width:90.9%"></span></div></div></td>
-      <td><div class="scorecell"><strong>7.35</strong><div class="bar"><span style="width:73.5%"></span></div></div></td>
-      <td><strong>~1,3–1,5 M ₺</strong><div class="tiny">Yüksek — teklif ile doğrulandı</div></td>
+      <td><strong>ODTÜ GVO</strong><div class="muted">ODTÜ Kampüsü, Çankaya</div></td>
+      <td><div class="scorecell"><strong>7.80</strong><div class="bar"><span style="width:78.0%"></span></div></div></td><td><div class="scorecell"><strong>8.47</strong><div class="bar"><span style="width:84.7%"></span></div></div></td>
+      <td><div class="scorecell"><strong>7.80</strong><div class="bar"><span style="width:78.0%"></span></div></div><div class="tiny" style="color:#2a556e">Güçlü itibar · öz-beyan</div></td>
+      <td><div class="scorecell"><strong>8.97</strong><div class="bar"><span style="width:89.7%"></span></div></div><div class="tiny">baskı −0,30</div></td>
+      <td><div class="scorecell"><strong>9.20</strong><div class="bar"><span style="width:92.0%"></span></div></div></td><td><div class="scorecell"><strong>8.80</strong><div class="bar"><span style="width:88.0%"></span></div></div></td><td><div class="scorecell"><strong>5.81</strong><div class="bar"><span style="width:58.1%"></span></div></div></td>
+      <td><strong>~2,0–2,2 M ₺ all-in</strong><div class="tiny">Orta — eğitim 1,7 M ₺ + yemek/servis tahmini</div></td>
     </tr>
     <tr>
       <td class="rank">5</td>
-      <td><strong>TED Ankara</strong><div class="muted">İncek</div></td>
-      <td><div class="scorecell"><strong>8.28</strong><div class="bar"><span style="width:82.8%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.90</strong><div class="bar"><span style="width:89.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>9.40</strong><div class="bar"><span style="width:94.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.90</strong><div class="bar"><span style="width:89.0%"></span></div></div><div class="tiny">baskı −0,60</div></td>
-      <td><div class="scorecell"><strong>9.80</strong><div class="bar"><span style="width:98.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>7.92</strong><div class="bar"><span style="width:79.2%"></span></div></div></td>
-      <td><div class="scorecell"><strong>4.88</strong><div class="bar"><span style="width:48.8%"></span></div></div></td>
-      <td><strong>~2,2–2,5 M ₺</strong><div class="tiny">Orta — resmi kalemlerden tahmin</div></td>
+      <td><strong>İDV Bilkent</strong><div class="muted">Bilkent Kampüsü, Çankaya</div></td>
+      <td><div class="scorecell"><strong>7.78</strong><div class="bar"><span style="width:77.8%"></span></div></div></td><td><div class="scorecell"><strong>8.07</strong><div class="bar"><span style="width:80.7%"></span></div></div></td>
+      <td><div class="scorecell"><strong>7.00</strong><div class="bar"><span style="width:70.0%"></span></div></div><div class="tiny" style="color:#5b4b8a">Farklı eksen · LGS dışı</div></td>
+      <td><div class="scorecell"><strong>8.76</strong><div class="bar"><span style="width:87.6%"></span></div></div><div class="tiny">baskı −0,30</div></td>
+      <td><div class="scorecell"><strong>8.80</strong><div class="bar"><span style="width:88.0%"></span></div></div></td><td><div class="scorecell"><strong>8.81</strong><div class="bar"><span style="width:88.1%"></span></div></div></td><td><div class="scorecell"><strong>6.92</strong><div class="bar"><span style="width:69.2%"></span></div></div></td>
+      <td><strong>~1,70 M ₺ all-in</strong><div class="tiny">Yüksek — birinci elden &amp; resmi fiyatla uyumlu</div></td>
     </tr>
     <tr>
       <td class="rank">6</td>
-      <td><strong>Bahçeşehir İncek</strong><div class="muted">İncek</div></td>
-      <td><div class="scorecell"><strong>8.26</strong><div class="bar"><span style="width:82.6%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.21</strong><div class="bar"><span style="width:82.1%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.70</strong><div class="bar"><span style="width:87.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.03</strong><div class="bar"><span style="width:80.3%"></span></div></div><div class="tiny">baskı −0,75</div></td>
-      <td><div class="scorecell"><strong>8.80</strong><div class="bar"><span style="width:88.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>7.55</strong><div class="bar"><span style="width:75.5%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.60</strong><div class="bar"><span style="width:86.0%"></span></div></div></td>
-      <td><strong>~1,00 M ₺</strong><div class="tiny">Yüksek — birinci elden</div></td>
+      <td><strong>ANKÜ GVO</strong><div class="muted">Ahlatlıbel / İncek, Çankaya</div></td>
+      <td><div class="scorecell"><strong>7.68</strong><div class="bar"><span style="width:76.8%"></span></div></div></td><td><div class="scorecell"><strong>7.68</strong><div class="bar"><span style="width:76.8%"></span></div></div></td>
+      <td><div class="scorecell"><strong>6.50</strong><div class="bar"><span style="width:65.0%"></span></div></div><div class="tiny" style="color:#9a6416">Kanıt yok · genç/zincir</div></td>
+      <td><div class="scorecell"><strong>8.16</strong><div class="bar"><span style="width:81.6%"></span></div></div><div class="tiny">baskı −0,45</div></td>
+      <td><div class="scorecell"><strong>8.40</strong><div class="bar"><span style="width:84.0%"></span></div></div></td><td><div class="scorecell"><strong>9.09</strong><div class="bar"><span style="width:90.9%"></span></div></div></td><td><div class="scorecell"><strong>7.56</strong><div class="bar"><span style="width:75.6%"></span></div></div></td>
+      <td><strong>~1,4–1,5 M ₺ all-in</strong><div class="tiny">Yüksek — resmi PDF ile doğrulandı</div></td>
     </tr>
     <tr>
       <td class="rank">7</td>
-      <td><strong>MEV Ankara</strong><div class="muted">Çayyolu / Koru</div></td>
-      <td><div class="scorecell"><strong>8.08</strong><div class="bar"><span style="width:80.8%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.18</strong><div class="bar"><span style="width:81.8%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.40</strong><div class="bar"><span style="width:84.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>7.89</strong><div class="bar"><span style="width:78.9%"></span></div></div><div class="tiny">baskı −0,60</div></td>
-      <td><div class="scorecell"><strong>8.20</strong><div class="bar"><span style="width:82.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.31</strong><div class="bar"><span style="width:83.1%"></span></div></div></td>
-      <td><div class="scorecell"><strong>7.44</strong><div class="bar"><span style="width:74.4%"></span></div></div></td>
-      <td><strong>~1,3–1,5 M ₺</strong><div class="tiny">Orta</div></td>
+      <td><strong>TED Ankara</strong><div class="muted">İncek, Gölbaşı</div></td>
+      <td><div class="scorecell"><strong>7.60</strong><div class="bar"><span style="width:76.0%"></span></div></div></td><td><div class="scorecell"><strong>8.54</strong><div class="bar"><span style="width:85.4%"></span></div></div></td>
+      <td><div class="scorecell"><strong>8.50</strong><div class="bar"><span style="width:85.0%"></span></div></div><div class="tiny" style="color:#176b52">Kanıtlı · bağımsız/tekrarlı</div></td>
+      <td><div class="scorecell"><strong>8.90</strong><div class="bar"><span style="width:89.0%"></span></div></div><div class="tiny">baskı −0,60</div></td>
+      <td><div class="scorecell"><strong>9.80</strong><div class="bar"><span style="width:98.0%"></span></div></div></td><td><div class="scorecell"><strong>7.92</strong><div class="bar"><span style="width:79.2%"></span></div></div></td><td><div class="scorecell"><strong>4.90</strong><div class="bar"><span style="width:49.0%"></span></div></div></td>
+      <td><strong>~2,2–2,5 M ₺ all-in</strong><div class="tiny">Orta — liralık teyit yok (fiyat görsel olarak yayımlı)</div></td>
     </tr>
     <tr>
       <td class="rank">8</td>
-      <td><strong>Arı Okulları</strong><div class="muted">Çukurambar</div></td>
-      <td><div class="scorecell"><strong>7.98</strong><div class="bar"><span style="width:79.8%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.17</strong><div class="bar"><span style="width:81.7%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.60</strong><div class="bar"><span style="width:86.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>7.76</strong><div class="bar"><span style="width:77.6%"></span></div></div><div class="tiny">baskı −0,75</div></td>
-      <td><div class="scorecell"><strong>8.20</strong><div class="bar"><span style="width:82.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.08</strong><div class="bar"><span style="width:80.8%"></span></div></div></td>
-      <td><div class="scorecell"><strong>6.92</strong><div class="bar"><span style="width:69.2%"></span></div></div></td>
-      <td><strong>~1,4–1,5 M ₺?</strong><div class="tiny">Düşük</div></td>
+      <td><strong>Nesibe Aydın</strong><div class="muted">Gölbaşı</div></td>
+      <td><div class="scorecell"><strong>7.42</strong><div class="bar"><span style="width:74.2%"></span></div></div></td><td><div class="scorecell"><strong>7.57</strong><div class="bar"><span style="width:75.7%"></span></div></div></td>
+      <td><div class="scorecell"><strong>8.30</strong><div class="bar"><span style="width:83.0%"></span></div></div><div class="tiny" style="color:#2a556e">Güçlü itibar · öz-beyan</div></td>
+      <td><div class="scorecell"><strong>6.84</strong><div class="bar"><span style="width:68.4%"></span></div></div><div class="tiny">baskı −1,80</div></td>
+      <td><div class="scorecell"><strong>9.00</strong><div class="bar"><span style="width:90.0%"></span></div></div></td><td><div class="scorecell"><strong>7.58</strong><div class="bar"><span style="width:75.8%"></span></div></div></td><td><div class="scorecell"><strong>6.89</strong><div class="bar"><span style="width:68.9%"></span></div></div></td>
+      <td><strong>~1,4–1,7 M ₺ all-in (tahmini)</strong><div class="tiny">Düşük — 2026–27 ücret bulunamadı</div></td>
     </tr>
     <tr>
       <td class="rank">9</td>
-      <td><strong>Nesibe Aydın</strong><div class="muted">Gölbaşı</div></td>
-      <td><div class="scorecell"><strong>7.91</strong><div class="bar"><span style="width:79.1%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.08</strong><div class="bar"><span style="width:80.8%"></span></div></div></td>
-      <td><div class="scorecell"><strong>9.60</strong><div class="bar"><span style="width:96.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>6.84</strong><div class="bar"><span style="width:68.4%"></span></div></div><div class="tiny">baskı −1,80</div></td>
-      <td><div class="scorecell"><strong>9.00</strong><div class="bar"><span style="width:90.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>7.58</strong><div class="bar"><span style="width:75.8%"></span></div></div></td>
-      <td><div class="scorecell"><strong>6.49</strong><div class="bar"><span style="width:64.9%"></span></div></div></td>
-      <td><strong>~1,4–1,7 M ₺</strong><div class="tiny">Düşük — tahmini</div></td>
+      <td><strong>Beştepe</strong><div class="muted">Çayyolu / Beytepe</div></td>
+      <td><div class="scorecell"><strong>7.22</strong><div class="bar"><span style="width:72.2%"></span></div></div></td><td><div class="scorecell"><strong>7.06</strong><div class="bar"><span style="width:70.6%"></span></div></div></td>
+      <td><div class="scorecell"><strong>6.20</strong><div class="bar"><span style="width:62.0%"></span></div></div><div class="tiny" style="color:#2a556e">Güçlü itibar · öz-beyan</div></td>
+      <td><div class="scorecell"><strong>7.73</strong><div class="bar"><span style="width:77.3%"></span></div></div><div class="tiny">baskı −1,20</div></td>
+      <td><div class="scorecell"><strong>9.10</strong><div class="bar"><span style="width:91.0%"></span></div></div></td><td><div class="scorecell"><strong>7.44</strong><div class="bar"><span style="width:74.4%"></span></div></div></td><td><div class="scorecell"><strong>7.72</strong><div class="bar"><span style="width:77.2%"></span></div></div></td>
+      <td><strong>~1,0–1,2 M ₺ all-in</strong><div class="tiny">Orta — 2025–26 doğrulandı, 2026–27 projeksiyon</div></td>
     </tr>
     <tr>
       <td class="rank">10</td>
-      <td><strong>Beştepe</strong><div class="muted">Çayyolu / Beytepe</div></td>
-      <td><div class="scorecell"><strong>7.81</strong><div class="bar"><span style="width:78.1%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.05</strong><div class="bar"><span style="width:80.5%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.70</strong><div class="bar"><span style="width:87.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>7.73</strong><div class="bar"><span style="width:77.3%"></span></div></div><div class="tiny">baskı −1,20</div></td>
-      <td><div class="scorecell"><strong>9.10</strong><div class="bar"><span style="width:91.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>7.44</strong><div class="bar"><span style="width:74.4%"></span></div></div></td>
-      <td><div class="scorecell"><strong>6.28</strong><div class="bar"><span style="width:62.8%"></span></div></div></td>
-      <td><strong>~1,5–1,7 M ₺</strong><div class="tiny">Düşük-Orta</div></td>
+      <td><strong>Arı Okulları</strong><div class="muted">Çukurambar, Çankaya</div></td>
+      <td><div class="scorecell"><strong>7.12</strong><div class="bar"><span style="width:71.2%"></span></div></div></td><td><div class="scorecell"><strong>7.12</strong><div class="bar"><span style="width:71.2%"></span></div></div></td>
+      <td><div class="scorecell"><strong>6.00</strong><div class="bar"><span style="width:60.0%"></span></div></div><div class="tiny" style="color:#5b4b8a">Farklı eksen · LGS dışı</div></td>
+      <td><div class="scorecell"><strong>7.76</strong><div class="bar"><span style="width:77.6%"></span></div></div><div class="tiny">baskı −0,75</div></td>
+      <td><div class="scorecell"><strong>8.20</strong><div class="bar"><span style="width:82.0%"></span></div></div></td><td><div class="scorecell"><strong>8.08</strong><div class="bar"><span style="width:80.8%"></span></div></div></td><td><div class="scorecell"><strong>7.08</strong><div class="bar"><span style="width:70.8%"></span></div></div></td>
+      <td><strong>~1,4–1,5 M ₺ all-in (tahmini)</strong><div class="tiny">Düşük — ücret gerçekten kamuya kapalı</div></td>
     </tr>
     <tr>
       <td class="rank">11</td>
+      <td><strong>Yüce Okulları</strong> <span class="newbadge">YENİ</span><div class="muted">Oran, Çankaya</div></td>
+      <td><div class="scorecell"><strong>7.08</strong><div class="bar"><span style="width:70.8%"></span></div></div></td><td><div class="scorecell"><strong>6.98</strong><div class="bar"><span style="width:69.8%"></span></div></div></td>
+      <td><div class="scorecell"><strong>4.50</strong><div class="bar"><span style="width:45.0%"></span></div></div><div class="tiny" style="color:#5b4b8a">Farklı eksen · LGS dışı</div></td>
+      <td><div class="scorecell"><strong>8.70</strong><div class="bar"><span style="width:87.0%"></span></div></div><div class="tiny">baskı −0,30</div></td>
+      <td><div class="scorecell"><strong>8.60</strong><div class="bar"><span style="width:86.0%"></span></div></div></td><td><div class="scorecell"><strong>8.50</strong><div class="bar"><span style="width:85.0%"></span></div></div></td><td><div class="scorecell"><strong>7.41</strong><div class="bar"><span style="width:74.1%"></span></div></div></td>
+      <td><strong>~1,3–1,5 M ₺ all-in</strong><div class="tiny">Orta — üçüncü el fiyat; konum güneybatı sınırında</div></td>
+    </tr>
+    <tr>
+      <td class="rank">12</td>
+      <td><strong>Bahçeşehir İncek</strong><div class="muted">İncek / Alacaatlı</div></td>
+      <td><div class="scorecell"><strong>7.03</strong><div class="bar"><span style="width:70.3%"></span></div></div></td><td><div class="scorecell"><strong>6.52</strong><div class="bar"><span style="width:65.2%"></span></div></div></td>
+      <td><div class="scorecell"><strong>4.50</strong><div class="bar"><span style="width:45.0%"></span></div></div><div class="tiny" style="color:#9a6416">Kanıt yok · genç/zincir</div></td>
+      <td><div class="scorecell"><strong>8.03</strong><div class="bar"><span style="width:80.3%"></span></div></div><div class="tiny">baskı −0,75</div></td>
+      <td><div class="scorecell"><strong>8.80</strong><div class="bar"><span style="width:88.0%"></span></div></div></td><td><div class="scorecell"><strong>7.55</strong><div class="bar"><span style="width:75.5%"></span></div></div></td><td><div class="scorecell"><strong>8.60</strong><div class="bar"><span style="width:86.0%"></span></div></div></td>
+      <td><strong>~1,00 M ₺ all-in</strong><div class="tiny">Yüksek — birinci elden</div></td>
+    </tr>
+    <tr>
+      <td class="rank">13</td>
+      <td><strong>Bah. Çayyolu</strong> <span class="newbadge">YENİ</span><div class="muted">Çayyolu (Kışlalı), Çankaya</div></td>
+      <td><div class="scorecell"><strong>6.95</strong><div class="bar"><span style="width:69.5%"></span></div></div></td><td><div class="scorecell"><strong>6.52</strong><div class="bar"><span style="width:65.2%"></span></div></div></td>
+      <td><div class="scorecell"><strong>4.50</strong><div class="bar"><span style="width:45.0%"></span></div></div><div class="tiny" style="color:#9a6416">Kanıt yok · genç/zincir</div></td>
+      <td><div class="scorecell"><strong>8.03</strong><div class="bar"><span style="width:80.3%"></span></div></div><div class="tiny">baskı −0,75</div></td>
+      <td><div class="scorecell"><strong>8.60</strong><div class="bar"><span style="width:86.0%"></span></div></div></td><td><div class="scorecell"><strong>7.55</strong><div class="bar"><span style="width:75.5%"></span></div></div></td><td><div class="scorecell"><strong>8.29</strong><div class="bar"><span style="width:82.9%"></span></div></div></td>
+      <td><strong>~1,0–1,2 M ₺ all-in (kampüse özel doğrulanamadı)</strong><div class="tiny">Orta — kampüs fiyatı doğrudan alınmalı</div></td>
+    </tr>
+    <tr>
+      <td class="rank">14</td>
+      <td><strong>Bilfen Çayyolu</strong> <span class="newbadge">YENİ</span><div class="muted">Çayyolu, Çankaya</div></td>
+      <td><div class="scorecell"><strong>6.60</strong><div class="bar"><span style="width:66.0%"></span></div></div></td><td><div class="scorecell"><strong>6.44</strong><div class="bar"><span style="width:64.4%"></span></div></div></td>
+      <td><div class="scorecell"><strong>5.20</strong><div class="bar"><span style="width:52.0%"></span></div></div><div class="tiny" style="color:#9a6416">Kanıt yok · genç/zincir</div></td>
+      <td><div class="scorecell"><strong>7.00</strong><div class="bar"><span style="width:70.0%"></span></div></div><div class="tiny">baskı −1,20</div></td>
+      <td><div class="scorecell"><strong>8.30</strong><div class="bar"><span style="width:83.0%"></span></div></div></td><td><div class="scorecell"><strong>7.80</strong><div class="bar"><span style="width:78.0%"></span></div></div></td><td><div class="scorecell"><strong>6.99</strong><div class="bar"><span style="width:69.9%"></span></div></div></td>
+      <td><strong>~1,3–1,6 M ₺ all-in</strong><div class="tiny">Orta — kampüs ortaokul fiyatı bulundu</div></td>
+    </tr>
+    <tr>
+      <td class="rank">15</td>
       <td><strong>Zafer Koleji</strong><div class="muted">Çayyolu / Etimesgut</div></td>
-      <td><div class="scorecell"><strong>7.75</strong><div class="bar"><span style="width:77.5%"></span></div></div></td>
-      <td><div class="scorecell"><strong>8.10</strong><div class="bar"><span style="width:81.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>9.00</strong><div class="bar"><span style="width:90.0%"></span></div></div></td>
+      <td><div class="scorecell"><strong>6.45</strong><div class="bar"><span style="width:64.5%"></span></div></div></td><td><div class="scorecell"><strong>6.70</strong><div class="bar"><span style="width:67.0%"></span></div></div></td>
+      <td><div class="scorecell"><strong>5.50</strong><div class="bar"><span style="width:55.0%"></span></div></div><div class="tiny" style="color:#5b4b8a">Farklı eksen · LGS dışı</div></td>
       <td><div class="scorecell"><strong>7.51</strong><div class="bar"><span style="width:75.1%"></span></div></div><div class="tiny">baskı −1,50</div></td>
-      <td><div class="scorecell"><strong>9.80</strong><div class="bar"><span style="width:98.0%"></span></div></div></td>
-      <td><div class="scorecell"><strong>7.48</strong><div class="bar"><span style="width:74.8%"></span></div></div></td>
-      <td><div class="scorecell"><strong>5.67</strong><div class="bar"><span style="width:56.7%"></span></div></div></td>
-      <td><strong>~1,8–2,2 M ₺?</strong><div class="tiny">Düşük — açık fiyatlardan tahmin</div></td>
-    </tr></tbody>
+      <td><div class="scorecell"><strong>9.80</strong><div class="bar"><span style="width:98.0%"></span></div></div></td><td><div class="scorecell"><strong>7.48</strong><div class="bar"><span style="width:74.8%"></span></div></div></td><td><div class="scorecell"><strong>5.70</strong><div class="bar"><span style="width:57.0%"></span></div></div></td>
+      <td><strong>~1,8–2,2 M ₺ all-in (tahmini)</strong><div class="tiny">Düşük — açık fiyat bulunamadı</div></td>
+    </tr>
+
+</tbody>
 </table>
 </div>
+<p class="tiny" style="margin-top:10px">LGS sütunundaki renkli etiket kanıt seviyesini gösterir (Kanıtlı / Güçlü itibar / Farklı eksen / Kanıt yok). LGS okul ortalaması Türkiye'de kamuya açık değildir; puanlar 5 yıllık haber taramasından çıkarımdır. All-in tutarlar iki çocuk (1 anaokulu + 1 ortaokul) içindir; birinci elden teklifler korunmuş, tahminler kamuya açık 2026–27 verisiyle kontrol edilmiştir.</p>
 </section>
 
 <section class="card">
-<h2>Okul bazında özet</h2>
+<h2>Okul bazında değerlendirme</h2>
+<p class="muted">Her kartta: rasyonellik & eğitim skoru, ana metrikler, 5 yıllık LGS kanıtı, doğrulama/uyarılar, kaynak bağlantıları ve tüm alt kriter puanları.</p>
 </section>
 
-    <section class="school-card">
+    <section class="school-card" id="okul-1">
       <div class="school-head">
-        <div><span class="rank-pill">#1</span><h3>Maya İncek</h3><div class="muted">İncek</div></div>
-        <div class="big-score">8.76<span>/10</span><small>Rasyonellik</small></div>
+        <div><span class="rank-pill">#1</span><h3>Maya İncek</h3><div class="muted">İncek (Gölbaşı)</div></div>
+        <div class="big-score">8.05<span>/10</span><small>Rasyonellik · Eğitim 7.90</small></div>
       </div>
-      <p class="verdict">Çok güçlü kişisel gelişim ile görece düşük toplam maliyetin birleştiği en dengeli seçenek.</p>
+      <p class="verdict">Ağırlaştırılmış maliyet ekseninde en rasyonel seçenek: birinci elden ~1,10 M ₺ all-in ile en düşük maliyet grubunda, güçlü bütüncül gelişim ve — düşük akademik baskısıyla — en yüksek düzeltilmiş kişisel gelişim skoru. Tek zayıflığı LGS'de bağımsız kanıt olmaması (okul yüksek puanlıyı burs ile çekiyor, üretmiyor) ve İncek kampüsünün genç olması.</p>
       <div class="metrics">
-        <div><span>LGS</span><strong>8.9</strong></div>
-        <div><span>Kişisel gelişim</span><strong>8.74</strong><small>akademik baskı −0,60</small></div>
+        <div><span>LGS</span><strong>6.3</strong><small style="color:#9a6416">Kanıt yok · genç/zincir</small></div>
+        <div><span>Kişisel gelişim</span><strong>9.14</strong><small>baskı −0,20</small></div>
         <div><span>Fiziksel kampüs</span><strong>8.8</strong><small>KG'nin %10'u</small></div>
         <div><span>Sosyo-kültürel</span><strong>8.63</strong></div>
-        <div><span>Maliyet</span><strong>8.70</strong><small>~1,10 M ₺</small></div>
-        <div><span>Eğitim skoru</span><strong>8.80</strong></div>
+        <div><span>Maliyet</span><strong>8.57</strong><small>~1,10 M ₺ all-in</small></div>
+        <div><span>Eğitim skoru</span><strong>7.90</strong></div>
       </div>
-    
+      <div class="lgsbox" style="border-left-color:#9a6416;background:#fbf1e0">
+        <h4 style="color:#9a6416">LGS kanıtı — 5 yıllık haber taraması (Kanıt yok · genç/zincir)</h4>
+        <p>2021–26'da bağımsız 500 tam puan / Türkiye derecesi kaydı <b>bulunamadı</b>. Maya'nın kamuya açık LGS duruşu, yüksek puanlı öğrenciyi <b>burs merdiveniyle çekmek</b> (ilk %1'e %100, %1–2'ye %75…) üzerine kurulu — üretmek değil; vitrin başarısı ise YKS/üniversite. Genç İncek kampüsü de bunu kısmen açıklar. LGS ekseninde <b>güçlü-emelli ama kanıtsız</b>.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> Marka 2002 (Prof. Ziya Selçuk); İncek kampüsü ~2018–19 (≥6 yıl → kabul kriterini karşılıyor); ana+ortaokul, bütüncül model, ~30 kulüp, yarı olimpik havuz: doğrulandı.</li><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> <b>Düşük akademik baskı (−0,20) gerekçesi:</b> Maya'nın kurumsal kimliği kurucusu Ziya Selçuk'un “Bütüncül Gelişim Modeli”dir ve resmî olarak “yalnız akademik başarıya odaklanmadığını” beyan eder. Yerleşik bir haftalık deneme/etüt-drill kültürü yok; okul yüksek puanlı öğrenciyi <b>burs merdiveniyle çekiyor</b>, kendi içinde sınav-baskısıyla üretmeye çalışmıyor; genç kampüs de kökleşmiş bir dershane-tipi rekabet kültürü taşımıyor. Bu nedenle baskı cezası ODTÜ dahil çoğu okuldan düşük tutuldu.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Maliyet: kamuya açık 2026–27 İncek liste fiyatı iki çocuk için ~1,3 M+ ₺ çıkıyor; sizin ~1,10 M ₺ birinci elden all-in teklifiniz korundu — indirim/kampanya kaynaklı olabilir, yazılı teyit alın.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> İzlenecek başlıklar: Rekabet Kurumu'nun 2023 özel okul fiyat soruşturmasında Maya da anılan gruplar arasında (sektör geneli, sonuç yok); kurucu hisse devri/siyasi bağ tartışmaları basına yansıdı.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://www.maya.k12.tr/maya-ozel-okullari-ankara-incek-golbasi-kampusu/" target="_blank" rel="noopener">Maya İncek kampüs</a> · <a href="https://okul.com.tr/lise/ankara/ozel-maya-okullari-incek-anadolu-lisesi-15722" target="_blank" rel="noopener">LGS burs merdiveni (okul.com.tr)</a> · <a href="https://www.birgun.net/haber/ozel-okullar-sorusturmasinda-dikkat-ceken-isim-ziya-selcuk-un-kurucusu-oldugu-okul-da-listede-417293" target="_blank" rel="noopener">Rekabet soruşturması haberi</a></p>
+      </div>
       <div class="subscore-grid">
-        <div>
-          <h4>Kişisel gelişim alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>9.4</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>9.4</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>9.6</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>9.7</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.3</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>9.4</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>9.4</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.8</strong></td></tr></tbody></table>
-        </div>
-        <div>
-          <h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>9.4</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>9.4</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>9.6</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>9.7</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.3</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>9.4</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>9.4</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.8</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
           <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>8.8</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>8.7</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>8.2</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>9.0</strong></td></tr></tbody></table>
           <h4>Maliyet rasyonalitesi alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>8.6</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>9.0</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>7.5</strong></td></tr></tbody></table>
-        </div>
-      </div></section>
-    <section class="school-card">
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>8.6</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>9.0</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>7.5</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-2">
       <div class="school-head">
-        <div><span class="rank-pill">#2</span><h3>ODTÜ GVO</h3><div class="muted">ODTÜ</div></div>
-        <div class="big-score">8.55<span>/10</span><small>Rasyonellik</small></div>
+        <div><span class="rank-pill">#2</span><h3>MEV Ankara</h3><div class="muted">Koru / Çayyolu, Çankaya</div></div>
+        <div class="big-score">7.95<span>/10</span><small>Rasyonellik · Eğitim 7.74</small></div>
       </div>
-      <p class="verdict">Bütünsel eğitim, problem çözme ve entelektüel çevre çok güçlü; ücret bariyeri rasyonellik puanını düşürüyor.</p>
+      <p class="verdict">Köklü (Ankara'da 1993), dengeli vakıf okulu ve — maliyet doğrulamasıyla — beklenenden rasyonel: gerçek all-in ~0,7–1,0 M ₺, kasıtlı olarak orta fiyatlı. LGS itibarı güçlü ama somut sayı erişime kapalı.</p>
       <div class="metrics">
-        <div><span>LGS</span><strong>9.0</strong></div>
-        <div><span>Kişisel gelişim</span><strong>8.97</strong><small>akademik baskı −0,30</small></div>
-        <div><span>Fiziksel kampüs</span><strong>9.2</strong><small>KG'nin %10'u</small></div>
-        <div><span>Sosyo-kültürel</span><strong>8.80</strong></div>
-        <div><span>Maliyet</span><strong>6.42</strong><small>~1,6–1,7 M ₺</small></div>
-        <div><span>Eğitim skoru</span><strong>8.95</strong></div>
-      </div>
-    
-      <div class="subscore-grid">
-        <div>
-          <h4>Kişisel gelişim alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>9.3</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>9.1</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>9.5</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>9.7</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.0</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>9.1</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>9.3</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>9.2</strong></td></tr></tbody></table>
-        </div>
-        <div>
-          <h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>9.8</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.6</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>8.2</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>9.0</strong></td></tr></tbody></table>
-          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>5.6</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.4</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>6.5</strong></td></tr></tbody></table>
-        </div>
-      </div></section>
-    <section class="school-card">
-      <div class="school-head">
-        <div><span class="rank-pill">#3</span><h3>İDV Bilkent</h3><div class="muted">Bilkent</div></div>
-        <div class="big-score">8.39<span>/10</span><small>Rasyonellik</small></div>
-      </div>
-      <p class="verdict">Üniversite bağlantısı ve kültürel sermaye çok güçlü; maliyet yüksek, LGS toplu verisi sınırlı.</p>
-      <div class="metrics">
-        <div><span>LGS</span><strong>8.7</strong></div>
-        <div><span>Kişisel gelişim</span><strong>8.76</strong><small>akademik baskı −0,30</small></div>
-        <div><span>Fiziksel kampüs</span><strong>8.8</strong><small>KG'nin %10'u</small></div>
-        <div><span>Sosyo-kültürel</span><strong>8.81</strong></div>
-        <div><span>Maliyet</span><strong>6.52</strong><small>~1,70 M ₺</small></div>
-        <div><span>Eğitim skoru</span><strong>8.73</strong></div>
-      </div>
-    
-      <div class="subscore-grid">
-        <div>
-          <h4>Kişisel gelişim alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>9.2</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>9.2</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>9.1</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.4</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.9</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>9.0</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.8</strong></td></tr></tbody></table>
-        </div>
-        <div>
-          <h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>9.8</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.2</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>8.5</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>8.8</strong></td></tr></tbody></table>
-          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>5.4</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.5</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>8.0</strong></td></tr></tbody></table>
-        </div>
-      </div></section>
-    <section class="school-card">
-      <div class="school-head">
-        <div><span class="rank-pill">#4</span><h3>ANKÜ GVO</h3><div class="muted">Ahlatlıbel / İncek</div></div>
-        <div class="big-score">8.36<span>/10</span><small>Rasyonellik</small></div>
-      </div>
-      <p class="verdict">Akademik/mesleki aile çeşitliliği ve erişilebilirlik dengesi güçlü; LGS veri şeffaflığı zayıf.</p>
-      <div class="metrics">
-        <div><span>LGS</span><strong>8.5</strong></div>
-        <div><span>Kişisel gelişim</span><strong>8.16</strong><small>akademik baskı −0,45</small></div>
-        <div><span>Fiziksel kampüs</span><strong>8.4</strong><small>KG'nin %10'u</small></div>
-        <div><span>Sosyo-kültürel</span><strong>9.09</strong></div>
-        <div><span>Maliyet</span><strong>7.35</strong><small>~1,3–1,5 M ₺</small></div>
-        <div><span>Eğitim skoru</span><strong>8.50</strong></div>
-      </div>
-    
-      <div class="subscore-grid">
-        <div>
-          <h4>Kişisel gelişim alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>9.0</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.1</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.6</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.5</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.6</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.0</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.4</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.8</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.4</strong></td></tr></tbody></table>
-        </div>
-        <div>
-          <h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>9.5</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>9.0</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>9.3</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>8.5</strong></td></tr></tbody></table>
-          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>6.9</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.8</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>8.2</strong></td></tr></tbody></table>
-        </div>
-      </div></section>
-    <section class="school-card">
-      <div class="school-head">
-        <div><span class="rank-pill">#5</span><h3>TED Ankara</h3><div class="muted">İncek</div></div>
-        <div class="big-score">8.28<span>/10</span><small>Rasyonellik</small></div>
-      </div>
-      <p class="verdict">Saf eğitim ve kampüs kalitesinde lider grupta; çok yüksek maliyet ekonomik çeşitliliği ve rasyonellik puanını ciddi azaltıyor.</p>
-      <div class="metrics">
-        <div><span>LGS</span><strong>9.4</strong></div>
-        <div><span>Kişisel gelişim</span><strong>8.90</strong><small>akademik baskı −0,60</small></div>
-        <div><span>Fiziksel kampüs</span><strong>9.8</strong><small>KG'nin %10'u</small></div>
-        <div><span>Sosyo-kültürel</span><strong>7.92</strong></div>
-        <div><span>Maliyet</span><strong>4.88</strong><small>~2,2–2,5 M ₺</small></div>
-        <div><span>Eğitim skoru</span><strong>8.90</strong></div>
-      </div>
-    
-      <div class="subscore-grid">
-        <div>
-          <h4>Kişisel gelişim alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>9.4</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>9.8</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>9.7</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>9.6</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>9.2</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.0</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>9.4</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>9.4</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>9.8</strong></td></tr></tbody></table>
-        </div>
-        <div>
-          <h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>9.0</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>6.4</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>8.5</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.3</strong></td></tr></tbody></table>
-          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>3.5</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>6.0</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>7.0</strong></td></tr></tbody></table>
-        </div>
-      </div></section>
-    <section class="school-card">
-      <div class="school-head">
-        <div><span class="rank-pill">#6</span><h3>Bahçeşehir İncek</h3><div class="muted">İncek</div></div>
-        <div class="big-score">8.26<span>/10</span><small>Rasyonellik</small></div>
-      </div>
-      <p class="verdict">Maliyet avantajı çok güçlü; kampüs bazında LGS verisi ve sosyo-kültürel ayrışma ilk beş kadar ikna edici değil.</p>
-      <div class="metrics">
-        <div><span>LGS</span><strong>8.7</strong></div>
-        <div><span>Kişisel gelişim</span><strong>8.03</strong><small>akademik baskı −0,75</small></div>
-        <div><span>Fiziksel kampüs</span><strong>8.8</strong><small>KG'nin %10'u</small></div>
-        <div><span>Sosyo-kültürel</span><strong>7.55</strong></div>
-        <div><span>Maliyet</span><strong>8.60</strong><small>~1,00 M ₺</small></div>
-        <div><span>Eğitim skoru</span><strong>8.21</strong></div>
-      </div>
-    
-      <div class="subscore-grid">
-        <div>
-          <h4>Kişisel gelişim alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.8</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.9</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>8.5</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.7</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.8</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.8</strong></td></tr></tbody></table>
-        </div>
-        <div>
-          <h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>7.8</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.8</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>7.5</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.0</strong></td></tr></tbody></table>
-          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>9.0</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>8.7</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>7.0</strong></td></tr></tbody></table>
-        </div>
-      </div></section>
-    <section class="school-card">
-      <div class="school-head">
-        <div><span class="rank-pill">#7</span><h3>MEV Ankara</h3><div class="muted">Çayyolu / Koru</div></div>
-        <div class="big-score">8.08<span>/10</span><small>Rasyonellik</small></div>
-      </div>
-      <p class="verdict">Dengeli ve köklü seçenek; LGS tarafında karşılaştırılabilir kampüs bazlı veri sınırlı.</p>
-      <div class="metrics">
-        <div><span>LGS</span><strong>8.4</strong></div>
-        <div><span>Kişisel gelişim</span><strong>7.89</strong><small>akademik baskı −0,60</small></div>
+        <div><span>LGS</span><strong>7.3</strong><small style="color:#2a556e">Güçlü itibar · öz-beyan</small></div>
+        <div><span>Kişisel gelişim</span><strong>7.89</strong><small>baskı −0,60</small></div>
         <div><span>Fiziksel kampüs</span><strong>8.2</strong><small>KG'nin %10'u</small></div>
         <div><span>Sosyo-kültürel</span><strong>8.31</strong></div>
-        <div><span>Maliyet</span><strong>7.44</strong><small>~1,3–1,5 M ₺</small></div>
-        <div><span>Eğitim skoru</span><strong>8.18</strong></div>
+        <div><span>Maliyet</span><strong>8.53</strong><small>~0,9–1,1 M ₺ all-in</small></div>
+        <div><span>Eğitim skoru</span><strong>7.74</strong></div>
       </div>
-    
+      <div class="lgsbox" style="border-left-color:#2a556e;background:#eaf1f5">
+        <h4 style="color:#2a556e">LGS kanıtı — 5 yıllık haber taraması (Güçlü itibar · öz-beyan)</h4>
+        <p>Sürekli güncellenen “LGS Başarımız / LGS Gurur Tablosu” formatı ve köklü ulusal itibar, <b>düzenli derece/tam-puan üreten</b> bir kurum sinyali. Ancak resmi sayfaları ve sosyal hesapları otomatik erişime kapalıydı; bağımsız haber MEV öğrencisini adıyla anmıyor — bu yüzden somut sayı çıkarılamadı. <b>Muhtemel-güçlü, ölçeği doğrulanamadı.</b></p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> 1993'ten beri Ankara'da (Koru); ana+ortaokul, Cambridge (~2018'den); güneybatı aksı: doğrulandı.</li><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> Maliyet: MEV'in kendi listesine göre ortaokul all-in ~700 bin–1,04 M ₺; kasıtlı orta fiyatlı vakıf okulu.</li><li><span class="vb" style="color:#2a556e;background:#eaf1f5">ⓘ Not</span> Şikâyet sinyalleri: havuz/soyunma odası hijyeni, katı 16:00 çıkış (öznel). LGS sayfaları var ama erişime kapalıydı.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://www.mev.org.tr/sayfa/mev-koleji-tarihce" target="_blank" rel="noopener">MEV tarihçe</a> · <a href="https://mevkolejiankara.k12.tr/2026-2027-egitim-ogretim-yili-ucretleri/" target="_blank" rel="noopener">2026-27 ücretler</a> · <a href="https://mevkolejiankara.k12.tr/lgs-basarimiz/" target="_blank" rel="noopener">LGS başarımız (erişime kapalı)</a></p>
+      </div>
       <div class="subscore-grid">
-        <div>
-          <h4>Kişisel gelişim alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.6</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.5</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.6</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.5</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.4</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>8.5</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.5</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.6</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.2</strong></td></tr></tbody></table>
-        </div>
-        <div>
-          <h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.6</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.5</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.6</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.5</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.4</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>8.5</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.5</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.6</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.2</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
           <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>8.3</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>8.5</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>8.4</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>8.0</strong></td></tr></tbody></table>
           <h4>Maliyet rasyonalitesi alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>6.9</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.8</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>8.2</strong></td></tr></tbody></table>
-        </div>
-      </div></section>
-    <section class="school-card">
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>9.0</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>8.3</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>7.5</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-3">
       <div class="school-head">
-        <div><span class="rank-pill">#8</span><h3>Arı Okulları</h3><div class="muted">Çukurambar</div></div>
-        <div class="big-score">7.98<span>/10</span><small>Rasyonellik</small></div>
+        <div><span class="rank-pill">#3</span><h3>Jale Tezer</h3> <span class="newbadge">YENİ EKLENEN</span><div class="muted">Çayyolu (Koru / Ümitköy)</div></div>
+        <div class="big-score">7.83<span>/10</span><small>Rasyonellik · Eğitim 8.10</small></div>
       </div>
-      <p class="verdict">Köklü ve dengeli; konum güney-batı çekirdeğinin doğu sınırında ve veri şeffaflığı sınırlı.</p>
+      <p class="verdict">En somut, çok-yıllı gerçek LGS kanıtı olan okul (2026 Türkiye 1.'si buradan). 1998 kuruluşlu köklü Ankara kurumu, Çayyolu (güneybatı aksı), ana+ortaokul. Yoğun deneme/etüt kültürü akademik baskı cezasını yükseltiyor; 2026–27 ücreti kamuya kapalı.</p>
       <div class="metrics">
-        <div><span>LGS</span><strong>8.6</strong></div>
-        <div><span>Kişisel gelişim</span><strong>7.76</strong><small>akademik baskı −0,75</small></div>
-        <div><span>Fiziksel kampüs</span><strong>8.2</strong><small>KG'nin %10'u</small></div>
-        <div><span>Sosyo-kültürel</span><strong>8.08</strong></div>
-        <div><span>Maliyet</span><strong>6.92</strong><small>~1,4–1,5 M ₺?</small></div>
-        <div><span>Eğitim skoru</span><strong>8.17</strong></div>
-      </div>
-    
-      <div class="subscore-grid">
-        <div>
-          <h4>Kişisel gelişim alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.6</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.4</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.6</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.7</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.5</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>8.4</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.5</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.5</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.2</strong></td></tr></tbody></table>
-        </div>
-        <div>
-          <h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>8.4</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>8.0</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>8.0</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.7</strong></td></tr></tbody></table>
-          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>6.7</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.6</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>5.5</strong></td></tr></tbody></table>
-        </div>
-      </div></section>
-    <section class="school-card">
-      <div class="school-head">
-        <div><span class="rank-pill">#9</span><h3>Nesibe Aydın</h3><div class="muted">Gölbaşı</div></div>
-        <div class="big-score">7.91<span>/10</span><small>Rasyonellik</small></div>
-      </div>
-      <p class="verdict">LGS odaklı aile için çok güçlü; yüksek akademik baskı cezası bütünsel rasyonellikte ciddi kayıp yaratıyor.</p>
-      <div class="metrics">
-        <div><span>LGS</span><strong>9.6</strong></div>
-        <div><span>Kişisel gelişim</span><strong>6.84</strong><small>akademik baskı −1,80</small></div>
-        <div><span>Fiziksel kampüs</span><strong>9.0</strong><small>KG'nin %10'u</small></div>
-        <div><span>Sosyo-kültürel</span><strong>7.58</strong></div>
-        <div><span>Maliyet</span><strong>6.49</strong><small>~1,4–1,7 M ₺</small></div>
-        <div><span>Eğitim skoru</span><strong>8.08</strong></div>
-      </div>
-    
-      <div class="subscore-grid">
-        <div>
-          <h4>Kişisel gelişim alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.8</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.4</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.4</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.7</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.5</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.0</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.5</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.3</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>9.0</strong></td></tr></tbody></table>
-        </div>
-        <div>
-          <h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>8.1</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.0</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>7.8</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.3</strong></td></tr></tbody></table>
-          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>6.0</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.2</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>6.5</strong></td></tr></tbody></table>
-        </div>
-      </div></section>
-    <section class="school-card">
-      <div class="school-head">
-        <div><span class="rank-pill">#10</span><h3>Beştepe</h3><div class="muted">Çayyolu / Beytepe</div></div>
-        <div class="big-score">7.81<span>/10</span><small>Rasyonellik</small></div>
-      </div>
-      <p class="verdict">Fiziksel imkanları güçlü; rekabetçi akademik kültür ve yüksek maliyet aşağı çekiyor.</p>
-      <div class="metrics">
-        <div><span>LGS</span><strong>8.7</strong></div>
-        <div><span>Kişisel gelişim</span><strong>7.73</strong><small>akademik baskı −1,20</small></div>
-        <div><span>Fiziksel kampüs</span><strong>9.1</strong><small>KG'nin %10'u</small></div>
-        <div><span>Sosyo-kültürel</span><strong>7.44</strong></div>
-        <div><span>Maliyet</span><strong>6.28</strong><small>~1,5–1,7 M ₺</small></div>
-        <div><span>Eğitim skoru</span><strong>8.05</strong></div>
-      </div>
-    
-      <div class="subscore-grid">
-        <div>
-          <h4>Kişisel gelişim alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.9</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>9.2</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.9</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>8.7</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.8</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.7</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>9.1</strong></td></tr></tbody></table>
-        </div>
-        <div>
-          <h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>7.7</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.2</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>7.4</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.3</strong></td></tr></tbody></table>
-          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>5.8</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.0</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>7.0</strong></td></tr></tbody></table>
-        </div>
-      </div></section>
-    <section class="school-card">
-      <div class="school-head">
-        <div><span class="rank-pill">#11</span><h3>Zafer Koleji</h3><div class="muted">Çayyolu / Etimesgut</div></div>
-        <div class="big-score">7.75<span>/10</span><small>Rasyonellik</small></div>
-      </div>
-      <p class="verdict">Kampüs ve laboratuvar/spor altyapısı olağanüstü; yoğun deneme-etüt sistemi ve yüksek maliyet rasyonellik puanını düşürüyor.</p>
-      <div class="metrics">
-        <div><span>LGS</span><strong>9.0</strong></div>
-        <div><span>Kişisel gelişim</span><strong>7.51</strong><small>akademik baskı −1,50</small></div>
-        <div><span>Fiziksel kampüs</span><strong>9.8</strong><small>KG'nin %10'u</small></div>
-        <div><span>Sosyo-kültürel</span><strong>7.48</strong></div>
-        <div><span>Maliyet</span><strong>5.67</strong><small>~1,8–2,2 M ₺?</small></div>
+        <div><span>LGS</span><strong>8.7</strong><small style="color:#176b52">Kanıtlı · bağımsız/tekrarlı</small></div>
+        <div><span>Kişisel gelişim</span><strong>7.40</strong><small>baskı −1,20</small></div>
+        <div><span>Fiziksel kampüs</span><strong>8.3</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>8.30</strong></div>
+        <div><span>Maliyet</span><strong>6.92</strong><small>~1,4–1,6 M ₺ all-in (tahmini)</small></div>
         <div><span>Eğitim skoru</span><strong>8.10</strong></div>
       </div>
-    
+      <div class="lgsbox" style="border-left-color:#176b52;background:#e7f3ee">
+        <h4 style="color:#176b52">LGS kanıtı — 5 yıllık haber taraması (Kanıtlı · bağımsız/tekrarlı)</h4>
+        <p>Setteki en zengin çok-yıllı LGS kaydı: <b>2026'da 2 Türkiye 1.'si</b> (biri Emre Uzundere, Çayyolu, 500 tam puan), <b>2025'te ~5 şampiyon</b> (Bertuğ, Çağan, Emir Batu, Elif Naz). Öz-beyan ağırlıklı ama spesifik, tutarlı ve ulusal sayılara göre çok üstünde bir per-capita oran. Bilfen/Bahçeşehir gibi zincir-toplamı değil, tek kampüs çıktısı.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> 1998 kuruluş; Çayyolu Koru (ana+ilk+orta) + Ümitköy + GOP; güneybatı aksı: doğrulandı.</li><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> LGS: 2025 ve 2026'da tekrarlı Türkiye 1.'si okulun kendi sonuç sayfalarında belgeli — setteki en güçlü somut LGS kanıtı.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Yüksek akademik baskı (hafta sonu/etüt yoğun). 2026–27 ücret talep formu arkasında — doğrudan fiyat listesi isteyin.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://www.jaletezer.k12.tr/tarihce" target="_blank" rel="noopener">Tarihçe</a> · <a href="https://www.jaletezer.k12.tr/haber/lgs-2026-turkiye-1incisi" target="_blank" rel="noopener">LGS 2026 Türkiye 1.&#x27;si</a> · <a href="https://www.jaletezer.k12.tr/akademik-ve-bilimsel-basarilarimiz2024" target="_blank" rel="noopener">2025 şampiyonlar</a></p>
+      </div>
       <div class="subscore-grid">
-        <div>
-          <h4>Kişisel gelişim alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.8</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>9.4</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>8.7</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.7</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.6</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>9.8</strong></td></tr></tbody></table>
-        </div>
-        <div>
-          <h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.3</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>7.8</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.0</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.2</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.4</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>8.3</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.2</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.1</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.3</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>8.6</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>8.0</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>8.2</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>8.0</strong></td></tr></tbody></table>
+          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>7.0</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.4</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>5.5</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-4">
+      <div class="school-head">
+        <div><span class="rank-pill">#4</span><h3>ODTÜ GVO</h3><div class="muted">ODTÜ Kampüsü, Çankaya</div></div>
+        <div class="big-score">7.80<span>/10</span><small>Rasyonellik · Eğitim 8.47</small></div>
+      </div>
+      <p class="verdict">Bütünsel eğitim, problem çözme ve ODTÜ entelektüel çevresiyle en güçlü akademik-kültürel profillerden biri. LGS'de tekil şampiyon değil, yaygın yüksek yüzdelik modeli. Ağırlaştırılmış maliyet ekseninde ise all-in tutar (~2,0–2,2 M ₺) sıralamayı aşağı çekiyor — bu tutar üzerinden puanlandı, yalnız eğitim ücreti üzerinden değil.</p>
+      <div class="metrics">
+        <div><span>LGS</span><strong>7.8</strong><small style="color:#2a556e">Güçlü itibar · öz-beyan</small></div>
+        <div><span>Kişisel gelişim</span><strong>8.97</strong><small>baskı −0,30</small></div>
+        <div><span>Fiziksel kampüs</span><strong>9.2</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>8.80</strong></div>
+        <div><span>Maliyet</span><strong>5.81</strong><small>~2,0–2,2 M ₺ all-in</small></div>
+        <div><span>Eğitim skoru</span><strong>8.47</strong></div>
+      </div>
+      <div class="lgsbox" style="border-left-color:#2a556e;background:#eaf1f5">
+        <h4 style="color:#2a556e">LGS kanıtı — 5 yıllık haber taraması (Güçlü itibar · öz-beyan)</h4>
+        <p>Ankara kampüsü “500 tam puan” haberi yaymıyor; ODTÜ GV markası LGS'yi <b>yüzdelik-dağılım</b> diliyle raporluyor (kardeş kampüslerde “ilk %1: öğrencilerin %10'u, ilk %5: %40” gibi). Bu, tekil şampiyon kovalamak yerine <b>kohortun tümünün yüksek puan alması</b> profilidir. 2021–26'da Ankara'ya özel bağımsız tam-puan kanıtı ince; güç, itibar ve yüzdelik modelden geliyor.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> 1989'dan beri Ankara'da; ODTÜ kampüsü içinde (batı-güneybatı aksı); ana+ortaokul; kültür merkezi, laboratuvarlar, spor salonları: doğrulandı.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Maliyet all-in üzerinden: resmi 2026–27 eğitim ücreti anaokulu 950.000 ₺ + ortaokul 725.000 ₺ = 1,675 M ₺; yemek+servis (henüz açıklanmadı) eklenince <b>all-in ~2,0–2,2 M ₺</b>. Skor bu all-in üzerinden verildi.</li><li><span class="vb" style="color:#2a556e;background:#eaf1f5">ⓘ Not</span> Bu yıl ücret artışına veli tepkisi forumlarda görüldü (öznel). Yüzme havuzu resmi metinde teyit edilemedi.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://www.odtugvo.k12.tr/tr/page/kurumsal/8/tarihcemiz" target="_blank" rel="noopener">Tarihçe</a> · <a href="https://www.odtugvo.k12.tr/ankara/pdf/okul_ucretleri_2026-27_ANKARA_y.pdf" target="_blank" rel="noopener">2026-27 ücret PDF</a> · <a href="https://www.odtugvkocaeli.k12.tr/odtu-gv-ozel-kyod-ortaokulu-lgs-basarilarina-bir-yenisini-daha-ekledi/" target="_blank" rel="noopener">Kardeş kampüs LGS raporlaması (yüzdelik)</a></p>
+      </div>
+      <div class="subscore-grid">
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>9.3</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>9.1</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>9.5</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>9.7</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.0</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>9.1</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>9.3</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>9.2</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>9.8</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.6</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>8.2</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>9.0</strong></td></tr></tbody></table>
+          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>4.5</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.4</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>6.5</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-5">
+      <div class="school-head">
+        <div><span class="rank-pill">#5</span><h3>İDV Bilkent</h3><div class="muted">Bilkent Kampüsü, Çankaya</div></div>
+        <div class="big-score">7.78<span>/10</span><small>Rasyonellik · Eğitim 8.07</small></div>
+      </div>
+      <p class="verdict">Türkiye'de üniversiteye fiziki gömülü en güçlü bağ ve entelektüel/akademik veli çevresi. LGS'ye girmediği için LGS puanı düşük — bu bir eksen farkı, zayıflık değil. Maliyet birinci elden ~1,70 M ₺ resmi fiyatlarla birebir tutarlı. Kritik ayrım: İDV Türkçe track vs. BLIS (IB/İngilizce, LGS yok).</p>
+      <div class="metrics">
+        <div><span>LGS</span><strong>7.0</strong><small style="color:#5b4b8a">Farklı eksen · LGS dışı</small></div>
+        <div><span>Kişisel gelişim</span><strong>8.76</strong><small>baskı −0,30</small></div>
+        <div><span>Fiziksel kampüs</span><strong>8.8</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>8.81</strong></div>
+        <div><span>Maliyet</span><strong>6.92</strong><small>~1,70 M ₺ all-in</small></div>
+        <div><span>Eğitim skoru</span><strong>8.07</strong></div>
+      </div>
+      <div class="lgsbox" style="border-left-color:#5b4b8a;background:#efecf7">
+        <h4 style="color:#5b4b8a">LGS kanıtı — 5 yıllık haber taraması (Farklı eksen · LGS dışı)</h4>
+        <p>LGS'ye <b>tasarım gereği girmez</b>: ortaokul mezunları büyük ölçüde Bilkent'in kendi IB lisesine geçtiği için LGS'de derece yayımlamaz ve hiçbiri bulunamadı. Bu bir <b>zayıflık değil, farklı eksen</b> — öğrenci profili akademik olarak seçkin, ama ölçüt IB ve üniversite yerleştirmesi. Düşük LGS puanı bunu yansıtır, öğrenci kalitesini değil.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> 1994 kuruluş, Bilkent kampüsü içinde (güneybatı); ana+ortaokul; IB PYP/MYP/DP: doğrulandı.</li><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> Maliyet doğrulandı: anaokulu 817.150 ₺ + ortaokul 653.720 ₺ + 2× yemek 95.000 ₺ + servis ≈ 1,66–1,75 M ₺.</li><li><span class="vb" style="color:#2a556e;background:#eaf1f5">ⓘ Not</span> İsim karışıklığı: LGS hattı için İDV Özel Bilkent Okulları (Türkçe) doğru birim; BLIS uluslararası ve LGS'ye girmez.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://obi.bilkent.edu.tr/index.php/tarihcemiz/" target="_blank" rel="noopener">Tarihçe</a> · <a href="https://obi.bilkent.edu.tr/index.php/2026-2027-egitim-ucretimiz/" target="_blank" rel="noopener">2026-27 eğitim ücreti</a> · <a href="https://obi.bilkent.edu.tr/" target="_blank" rel="noopener">Ortaokul (IB, LGS içeriği yok)</a></p>
+      </div>
+      <div class="subscore-grid">
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>9.2</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>9.2</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>9.1</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.4</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.9</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>9.0</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.8</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>9.8</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.2</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>8.5</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>8.8</strong></td></tr></tbody></table>
+          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>6.2</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.5</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>8.0</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-6">
+      <div class="school-head">
+        <div><span class="rank-pill">#6</span><h3>ANKÜ GVO</h3><div class="muted">Ahlatlıbel / İncek, Çankaya</div></div>
+        <div class="big-score">7.68<span>/10</span><small>Rasyonellik · Eğitim 7.68</small></div>
+      </div>
+      <p class="verdict">Kâr amacı gütmeyen Ankara Üniversitesi vakfı; akademik/mesleki aile çeşitliliği ve erişilebilirlik en güçlü yönü, ~30 yıllık köklülük. LGS çıktısını pazarlamıyor (bütünsel/üniversite çerçevesi), bu nedenle LGS ekseninde kanıtsız.</p>
+      <div class="metrics">
+        <div><span>LGS</span><strong>6.5</strong><small style="color:#9a6416">Kanıt yok · genç/zincir</small></div>
+        <div><span>Kişisel gelişim</span><strong>8.16</strong><small>baskı −0,45</small></div>
+        <div><span>Fiziksel kampüs</span><strong>8.4</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>9.09</strong></div>
+        <div><span>Maliyet</span><strong>7.56</strong><small>~1,4–1,5 M ₺ all-in</small></div>
+        <div><span>Eğitim skoru</span><strong>7.68</strong></div>
+      </div>
+      <div class="lgsbox" style="border-left-color:#9a6416;background:#fbf1e0">
+        <h4 style="color:#9a6416">LGS kanıtı — 5 yıllık haber taraması (Kanıt yok · genç/zincir)</h4>
+        <p>Ortaokul sayfasında <b>hiç LGS tam-puan/derece pazarlaması yok</b> ve bağımsız haber ANKÜ'yü anmıyor. Bu, seçkin İncek kampüsünün bilinçli “bütünsel gelişim + üniversite” çerçevesini yansıtan bir <b>konumlanma tercihi</b> gibi görünüyor; alım profili varlıklı/seçici. LGS-derece üreticisi olarak kamuya açık kayıtta <b>kanıtsız</b>.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> 1996'dan beri aynı Ahlatlıbel kampüsünde (~30 yıl); ana+ortaokul; Cambridge, MUN, çok dilli: doğrulandı.</li><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> Maliyet: resmi 2026–27 ortaokul 477.500 ₺ + yemek 102.000 ₺ (+KDV) → iki çocuk all-in ~1,27 M ₺ + servis.</li><li><span class="vb" style="color:#2a556e;background:#eaf1f5">ⓘ Not</span> Şikâyet sinyalleri: bazı sınıflarda genç öğretmen kadrosu, servis ücret artışı (öznel, küçük hacim).</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://ankugvo.k12.tr/ortaokul/test/tarihcemiz/" target="_blank" rel="noopener">Tarihçe</a> · <a href="https://ankugvo.k12.tr/2026-2027-akademik-yili-egitim-yemek-ucretleri-ve-indirim-yonergesi/" target="_blank" rel="noopener">2026-27 ücret ilanı</a> · <a href="https://ankugvo.k12.tr/ortaokul/" target="_blank" rel="noopener">Ortaokul (LGS pazarlaması yok)</a></p>
+      </div>
+      <div class="subscore-grid">
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>9.0</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.1</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.6</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.5</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.6</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.0</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.4</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.8</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.4</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>9.5</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>9.0</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>9.3</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>8.5</strong></td></tr></tbody></table>
+          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>7.2</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.8</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>8.2</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-7">
+      <div class="school-head">
+        <div><span class="rank-pill">#7</span><h3>TED Ankara</h3><div class="muted">İncek, Gölbaşı</div></div>
+        <div class="big-score">7.60<span>/10</span><small>Rasyonellik · Eğitim 8.54</small></div>
+      </div>
+      <p class="verdict">Kampüs ölçeği (142.000 m²) ve kanıtlı LGS başarısıyla lider grupta; IB Dünya Okulu. İki çocuk için en ağır maliyet filtresi rasyonelliği sınırlıyor. Konum güneyde (İncek/Gölbaşı) — ODTÜ/Bilkent'in batı koridorundan farklı.</p>
+      <div class="metrics">
+        <div><span>LGS</span><strong>8.5</strong><small style="color:#176b52">Kanıtlı · bağımsız/tekrarlı</small></div>
+        <div><span>Kişisel gelişim</span><strong>8.90</strong><small>baskı −0,60</small></div>
+        <div><span>Fiziksel kampüs</span><strong>9.8</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>7.92</strong></div>
+        <div><span>Maliyet</span><strong>4.90</strong><small>~2,2–2,5 M ₺ all-in</small></div>
+        <div><span>Eğitim skoru</span><strong>8.54</strong></div>
+      </div>
+      <div class="lgsbox" style="border-left-color:#176b52;background:#e7f3ee">
+        <h4 style="color:#176b52">LGS kanıtı — 5 yıllık haber taraması (Kanıtlı · bağımsız/tekrarlı)</h4>
+        <p>Setteki en somut bağımsız-benzeri LGS izine sahip: <b>2024'te 2 öğrenci</b> (Batu Peynircioğlu, Kuzey Hoşafcı) ve <b>2025'te 1 öğrenci</b> (Zeynep Akkocaoğlu) 500 tam puanla Türkiye 1.'si; 2024 sonucu yerel <i>Göl Haber</i> tarafından da (Gölbaşı ilçesi) doğrulandı. Zincir PR-makineleri kadar hacimli değil ama tekrarlı ve gerçek.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> 1928 TED / 1931 okul, 2003'ten beri İncek; ana+ortaokul; IB DP dünya okulu; kampüs ölçeği 9.8 puanı destekliyor: doğrulandı.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Maliyet: 2026–27 ücretler resmi sayfada yalnız görsel; ~2,2–2,5 M ₺ tahmini makul ama liralık teyit alınamadı.</li><li><span class="vb" style="color:#2a556e;background:#eaf1f5">ⓘ Not</span> Konum 'güneybatı' değil güney; 2025 üniversite yerleşimleri güçlü ama zirvesi Bilkent/Galatasaray düzeyinde.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://www.tedankara.k12.tr/index.php/tr/tarihce" target="_blank" rel="noopener">Tarihçe</a> · <a href="https://www.tedankara.k12.tr/index.php/tr/ortaokul/ortaokul-haber/235-oegrencilerimiz-batu-peynircioglu-ve-kuzey-hosafci-lgs-tuerkiye-birincisi-oldular" target="_blank" rel="noopener">2024: 2 Türkiye 1.&#x27;si</a> · <a href="https://www.tedankara.k12.tr/index.php/en/haberler/526-oegrencimiz-zeynep-akkocaoglu-lgs-tuerkiye-birincisi-oldu" target="_blank" rel="noopener">2025: 1 Türkiye 1.&#x27;si</a></p>
+      </div>
+      <div class="subscore-grid">
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>9.4</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>9.8</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>9.7</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>9.6</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>9.2</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.0</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>9.4</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>9.4</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>9.8</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>9.0</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>6.4</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>8.5</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.3</strong></td></tr></tbody></table>
+          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>3.5</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>6.0</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>7.0</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-8">
+      <div class="school-head">
+        <div><span class="rank-pill">#8</span><h3>Nesibe Aydın</h3><div class="muted">Gölbaşı</div></div>
+        <div class="big-score">7.42<span>/10</span><small>Rasyonellik · Eğitim 7.57</small></div>
+      </div>
+      <p class="verdict">LGS odaklı aile için setin en güçlü LGS itibarı (yüzdelik kanıtı güçlü, öz-beyan ağırlıklı). Ağır akademik baskı cezası (−1,80) bütünsel rasyonelliği ciddi düşürüyor. Konum: Gölbaşı güneyde, güneybatı aksının dışında.</p>
+      <div class="metrics">
+        <div><span>LGS</span><strong>8.3</strong><small style="color:#2a556e">Güçlü itibar · öz-beyan</small></div>
+        <div><span>Kişisel gelişim</span><strong>6.84</strong><small>baskı −1,80</small></div>
+        <div><span>Fiziksel kampüs</span><strong>9.0</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>7.58</strong></div>
+        <div><span>Maliyet</span><strong>6.89</strong><small>~1,4–1,7 M ₺ all-in (tahmini)</small></div>
+        <div><span>Eğitim skoru</span><strong>7.57</strong></div>
+      </div>
+      <div class="lgsbox" style="border-left-color:#2a556e;background:#eaf1f5">
+        <h4 style="color:#2a556e">LGS kanıtı — 5 yıllık haber taraması (Güçlü itibar · öz-beyan)</h4>
+        <p>Köklü, çok kampüslü, açıkça sınav-odaklı marka; yıl yıl “Türkiye birincilerimiz / derecelerimiz” sayfaları yayımlıyor. Tek somut sayısal veri (2019 Konya kampüsü): mezunların <b>%26'sı ilk %1, %62'si ilk %5</b> — ağır deneme-hazırlık modeliyle tutarlı yüksek yüzdelik. Güncel rakamlar neredeyse tümüyle öz-beyan; bağımsız Ankara teyidi yok ama tutarlılık/ölçek güçlü.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> 1984 kuruluş, çok kampüslü; Gölbaşı'nda ana+ortaokul; Cambridge/IGCSE: doğrulandı.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Baskı cezası doğrulandı: topluluk kaynakları 08–17 + Cumartesi, yoğun ödev, 'ticarethane' ve PDR yeterliliği eleştirileri içeriyor.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Konum Gölbaşı güneyde (Konya yolu). LGS '8.3' itibara/yüzdeliğe dayanır; 2026–27 ücret bulunamadı.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://nesibeaydin.k12.tr/web/okullarimiz/golbasi-kampusu/" target="_blank" rel="noopener">Gölbaşı kampüsü</a> · <a href="https://www.merhabahaber.com/nesibe-aydindan-lgsde-buyuk-basari-1707281h.htm" target="_blank" rel="noopener">2019 yüzdelik verisi (yerel haber)</a> · <a href="https://nesibeaydin.k12.tr/web/basarilarimiz/2025-2/" target="_blank" rel="noopener">2025 başarıları</a></p>
+      </div>
+      <div class="subscore-grid">
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.8</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.4</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.4</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.7</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.5</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.0</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.5</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.3</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>9.0</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>8.1</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.0</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>7.8</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.3</strong></td></tr></tbody></table>
+          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>6.8</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.2</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>6.5</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-9">
+      <div class="school-head">
+        <div><span class="rank-pill">#9</span><h3>Beştepe</h3><div class="muted">Çayyolu / Beytepe</div></div>
+        <div class="big-score">7.22<span>/10</span><small>Rasyonellik · Eğitim 7.06</small></div>
+      </div>
+      <p class="verdict">Fiziki imkânlar güçlü; kendi kohort verisiyle en somut LGS raporlaması (elit-altı). Maliyet 2025–26 verisiyle beklenenden düşük (ortaokul ~0,45–0,6 M ₺/çocuk). Belirgin PDR/veli şikâyetleri karar öncesi tartılmalı.</p>
+      <div class="metrics">
+        <div><span>LGS</span><strong>6.2</strong><small style="color:#2a556e">Güçlü itibar · öz-beyan</small></div>
+        <div><span>Kişisel gelişim</span><strong>7.73</strong><small>baskı −1,20</small></div>
+        <div><span>Fiziksel kampüs</span><strong>9.1</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>7.44</strong></div>
+        <div><span>Maliyet</span><strong>7.72</strong><small>~1,0–1,2 M ₺ all-in</small></div>
+        <div><span>Eğitim skoru</span><strong>7.06</strong></div>
+      </div>
+      <div class="lgsbox" style="border-left-color:#2a556e;background:#eaf1f5">
+        <h4 style="color:#2a556e">LGS kanıtı — 5 yıllık haber taraması (Güçlü itibar · öz-beyan)</h4>
+        <p>Setin kendi verisiyle en <b>somut ve ölçülebilir</b> raporlaması: 2026'da 91 öğrenciden ~%12'si ilk %1, ~%29'u ilk %5; 1 near-perfect (Miray Özkütük); 2022'de Türkiye ortalamasının +%63 üstü. Ancak <b>doğrulanmış 500 tam puan veya Türkiye derecesi hiçbir yılda yok</b>. Tutarlı biçimde ortalama-üstü, ama elit-altı.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> Çayyolu/Beytepe güneybatı aksında; ana+ortaokul: doğrulandı. Fiziki imkânlar güçlü.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Maliyet: doğrulanan 2025–26 ortaokul all-in ~450–610 bin ₺/çocuk. Kuruluş yılı sitede yok; '10+ yıl' kesin teyit edilemedi (işletmeci ESS Eğitim A.Ş.).</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Topluluk kaynaklarında yoğun PDR/kayırma/sözleşme şikâyetleri (öznel ama çok sayıda).</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://www.bestepekoleji.com/bestepe-koleji/" target="_blank" rel="noopener">Beştepe Koleji</a> · <a href="https://www.bestepekoleji.com/nazar-boncuklu-lgs-basarisi-2/" target="_blank" rel="noopener">2026 kohort verisi</a> · <a href="https://www.eleman.net/is-rehberi/maaslar-ve-ucretler/bestepe-koleji-fiyatlari-h17613" target="_blank" rel="noopener">2025-26 ücretler</a></p>
+      </div>
+      <div class="subscore-grid">
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.9</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>9.2</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.9</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>8.7</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.8</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.7</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>9.1</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>7.7</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.2</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>7.4</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.3</strong></td></tr></tbody></table>
+          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>8.6</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.0</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>6.5</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-10">
+      <div class="school-head">
+        <div><span class="rank-pill">#10</span><h3>Arı Okulları</h3><div class="muted">Çukurambar, Çankaya</div></div>
+        <div class="big-score">7.12<span>/10</span><small>Rasyonellik · Eğitim 7.12</small></div>
+      </div>
+      <p class="verdict">Köklü (1984), bilim/STEAM-güçlü bağımsız Ankara kurumu. LGS yerine TEKNOFEST/Cambridge ekseninde yarışıyor. Konum Çukurambar merkezi bir güneybatı düğümü. Ücret gerçekten opak; ~1,4–1,5 M ₺ tahmininin kamuya açık dayanağı yok.</p>
+      <div class="metrics">
+        <div><span>LGS</span><strong>6.0</strong><small style="color:#5b4b8a">Farklı eksen · LGS dışı</small></div>
+        <div><span>Kişisel gelişim</span><strong>7.76</strong><small>baskı −0,75</small></div>
+        <div><span>Fiziksel kampüs</span><strong>8.2</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>8.08</strong></div>
+        <div><span>Maliyet</span><strong>7.08</strong><small>~1,4–1,5 M ₺ all-in (tahmini)</small></div>
+        <div><span>Eğitim skoru</span><strong>7.12</strong></div>
+      </div>
+      <div class="lgsbox" style="border-left-color:#5b4b8a;background:#efecf7">
+        <h4 style="color:#5b4b8a">LGS kanıtı — 5 yıllık haber taraması (Farklı eksen · LGS dışı)</h4>
+        <p>Bağımsız basın izi tümüyle <b>LGS dışı</b>: TEKNOFEST, Cambridge English, STEAM, basketbol (Hürriyet Arı haber arşivi). Okul kendini STEAM/uluslararası/bütünsel çıktılarla konumluyor, tam-puan pazarlamasıyla değil. LGS'de <b>ne lehte ne aleyhte kanıt</b> — zayıflık değil, farklı eksen ve erişim boşluğu.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> 1984 kuruluş (~42 yıl), Çukurambar; tam K-12, ana+ortaokul: doğrulandı.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Ücret opaklığı: hiçbir kaynakta 2026–27 fiyatı yok (okul iletişim/ön kayıt istiyor); bir şikâyette tek yılda ~100 bin → 325 bin ₺+KDV sıçrama; veri gizliliği şikâyeti de var.</li><li><span class="vb" style="color:#2a556e;background:#eaf1f5">ⓘ Not</span> IB (DP/PYP) iddiası dizinlerde geçiyor; ibo.org'dan bağımsız teyit önerilir.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://www.ariokullari.k12.tr/" target="_blank" rel="noopener">Arı Okulları</a> · <a href="https://www.ariokullari.k12.tr/basarilar/" target="_blank" rel="noopener">Başarılar (LGS dışı ağırlıklı)</a> · <a href="https://www.hurriyet.com.tr/haberleri/ari-okullari" target="_blank" rel="noopener">Hürriyet Arı haber arşivi</a></p>
+      </div>
+      <div class="subscore-grid">
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.6</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.4</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.6</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.7</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.5</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>8.4</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.5</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.5</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.2</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>8.4</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>8.0</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>8.0</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.7</strong></td></tr></tbody></table>
+          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>7.2</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.6</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>5.5</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-11">
+      <div class="school-head">
+        <div><span class="rank-pill">#11</span><h3>Yüce Okulları</h3> <span class="newbadge">YENİ EKLENEN</span><div class="muted">Oran, Çankaya</div></div>
+        <div class="big-score">7.08<span>/10</span><small>Rasyonellik · Eğitim 6.98</small></div>
+      </div>
+      <p class="verdict">Ankara'nın tek IB Continuum okulu — bütünsel/dil-yoğun profilde hiçbir zincirin sunmadığı bir farklılaştırıcı. LGS'yi bilinçli önemsizleştirdiği için bu modelde düşük sıralanıyor; <b>IB/uluslararası eksende ilk sıralarda</b> yer alırdı. Tek çekince konum: Oran (güney-merkez Çankaya, çapraz-şehir ulaşımı).</p>
+      <div class="metrics">
+        <div><span>LGS</span><strong>4.5</strong><small style="color:#5b4b8a">Farklı eksen · LGS dışı</small></div>
+        <div><span>Kişisel gelişim</span><strong>8.70</strong><small>baskı −0,30</small></div>
+        <div><span>Fiziksel kampüs</span><strong>8.6</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>8.50</strong></div>
+        <div><span>Maliyet</span><strong>7.41</strong><small>~1,3–1,5 M ₺ all-in</small></div>
+        <div><span>Eğitim skoru</span><strong>6.98</strong></div>
+      </div>
+      <div class="lgsbox" style="border-left-color:#5b4b8a;background:#efecf7">
+        <h4 style="color:#5b4b8a">LGS kanıtı — 5 yıllık haber taraması (Farklı eksen · LGS dışı)</h4>
+        <p>Ankara'nın <b>tek IB Continuum (PYP+MYP+DP)</b> okulu; kendini uluslararası müfredat, EAQUALS ve 21. yüzyıl becerileri etrafında konumluyor, LGS hazırlığı etrafında değil. <b>Sıfır LGS metriği</b> yayımlıyor. Düşük LGS puanı bir <b>misyon tercihi</b>; IB/uluslararası eksende bu okul çok daha yüksek sıralanır.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> 1988 kuruluş (~38 yıl); ana→lise tam kademe; IB PYP+MYP+DP continuum (Ankara'da tek): doğrulandı.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Konum: Oran/Turan Güneş — güneybatı çekirdeğine yakın ama üstünde değil; commute değerlendirilmeli.</li><li><span class="vb" style="color:#2a556e;background:#eaf1f5">ⓘ Not</span> LGS bilinçli önemsizleştiriliyor. 2025–26 gösterge ücretler orta bantta; 2026–27 daha yüksek olacak.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://www.yuce.k12.tr/hakkimizda/yuce-okullari-tarihce" target="_blank" rel="noopener">Tarihçe</a> · <a href="https://yuce.k12.tr/" target="_blank" rel="noopener">Yüce Okulları (IB continuum)</a> · <a href="https://okul.com.tr/kolejler/yuce-okullari-145" target="_blank" rel="noopener">okul.com.tr profili</a></p>
+      </div>
+      <div class="subscore-grid">
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.9</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.3</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.9</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.9</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>9.0</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.6</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.9</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.6</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>8.9</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>8.4</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>8.5</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>8.2</strong></td></tr></tbody></table>
+          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>7.4</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.6</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>7.0</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-12">
+      <div class="school-head">
+        <div><span class="rank-pill">#12</span><h3>Bahçeşehir İncek</h3><div class="muted">İncek / Alacaatlı</div></div>
+        <div class="big-score">7.03<span>/10</span><small>Rasyonellik · Eğitim 6.52</small></div>
+      </div>
+      <p class="verdict">Birinci elden maliyet avantajı güçlü ve doğrulandı (~1,00 M ₺). Ancak LGS'de kampüse özel hiçbir kanıt yok — parlak rakamlar zincir toplamı. Ulusal marka bu kampüse otomatik transfer olmaz; franchise değişkenliği yüksek.</p>
+      <div class="metrics">
+        <div><span>LGS</span><strong>4.5</strong><small style="color:#9a6416">Kanıt yok · genç/zincir</small></div>
+        <div><span>Kişisel gelişim</span><strong>8.03</strong><small>baskı −0,75</small></div>
+        <div><span>Fiziksel kampüs</span><strong>8.8</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>7.55</strong></div>
+        <div><span>Maliyet</span><strong>8.60</strong><small>~1,00 M ₺ all-in</small></div>
+        <div><span>Eğitim skoru</span><strong>6.52</strong></div>
+      </div>
+      <div class="lgsbox" style="border-left-color:#9a6416;background:#fbf1e0">
+        <h4 style="color:#9a6416">LGS kanıtı — 5 yıllık haber taraması (Kanıt yok · genç/zincir)</h4>
+        <p>5 yıllık taramada <b>kampüse özel tek bir LGS haberi yok</b>. Zincirin parlak rakamları (2022:16, 2023:58, 2024:73, 2025:72, 2026:31 Türkiye 1.'si) <b>~487 kampüsün toplamı</b> — İncek'e atfedilemez; zincirin adıyla andığı tek Ankara öğrencisi bile başka kampüsten (“50. Yıl”). Franchise değişkenliği yüksek: kampüs kalitesi çok değişir.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> İncek/Alacaatlı (güney-güneybatı); düşük maliyet birinci elden: doğrulandı. Havuz dahil güçlü tesis.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Kampüse özel LGS kanıtı yok; zincir rakamları (16/58/73/72/31) tüm kampüslerin toplamı — İncek'e mal edilemez.</li><li><span class="vb" style="color:#2a556e;background:#eaf1f5">ⓘ Not</span> Franchise zinciri (~487 kampüs); BAÜ üniversite bağı İDV'ninkinden çok daha zayıf/ticari. İncek kampüs yaşı teyit edilmeli.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://okul.com.tr/ilkokul/ankara/ozel-ankara-incek-bahcesehir-koleji-ilkokulu-2178" target="_blank" rel="noopener">Bahçeşehir İncek (okul.com.tr)</a> · <a href="https://bahcesehir.k12.tr/haberler/262/lgsde-bahcesehir-kolejinden-73-birinci" target="_blank" rel="noopener">2024 zincir: 73 birinci</a> · <a href="https://www.dha.com.tr/egitim/lgsde-bahcesehir-kolejinden-72-ogrenci-500-tam-puan-aldi-2676746" target="_blank" rel="noopener">2025 zincir; Ankara öğrencisi &#x27;50. Yıl&#x27; kampüsünden</a></p>
+      </div>
+      <div class="subscore-grid">
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.8</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.9</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>8.5</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.7</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.8</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.8</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>7.8</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.8</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>7.5</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.0</strong></td></tr></tbody></table>
+          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>9.0</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>8.7</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>7.0</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-13">
+      <div class="school-head">
+        <div><span class="rank-pill">#13</span><h3>Bah. Çayyolu</h3> <span class="newbadge">YENİ EKLENEN</span><div class="muted">Çayyolu (Kışlalı), Çankaya</div></div>
+        <div class="big-score">6.95<span>/10</span><small>Rasyonellik · Eğitim 6.52</small></div>
+      </div>
+      <p class="verdict">YENİ EKLENEN (yeni 6-yıl kampüs kuralıyla uygun). Köklü Çayyolu kampüsü (~2010), havuz dahil güçlü tesis, orta maliyet, ana+ortaokul. İncek ile aynı zayıflık: kampüse özel LGS kanıtı yok, zincir pazarlamasına dayanıyor.</p>
+      <div class="metrics">
+        <div><span>LGS</span><strong>4.5</strong><small style="color:#9a6416">Kanıt yok · genç/zincir</small></div>
+        <div><span>Kişisel gelişim</span><strong>8.03</strong><small>baskı −0,75</small></div>
+        <div><span>Fiziksel kampüs</span><strong>8.6</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>7.55</strong></div>
+        <div><span>Maliyet</span><strong>8.29</strong><small>~1,0–1,2 M ₺ all-in (kampüse özel doğrulanamadı)</small></div>
+        <div><span>Eğitim skoru</span><strong>6.52</strong></div>
+      </div>
+      <div class="lgsbox" style="border-left-color:#9a6416;background:#fbf1e0">
+        <h4 style="color:#9a6416">LGS kanıtı — 5 yıllık haber taraması (Kanıt yok · genç/zincir)</h4>
+        <p>İncek ile aynı sorun, hatta biraz daha belirgin: 5 yılda <b>Çayyolu kampüsüne özel tek LGS öğrencisi/haberi yok</b> — kampüs yalnız sosyal hesap/dizinlerde görünüyor. Zincir toplamları bu kampüse mal edilemez. Kampüse özel kanıt olmadığı için LGS puanı zincir-pazarlama tabanında tutuldu.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> Marka 1994; Çayyolu kampüsü ~2010 (≥6 yıl → uygun); Kışlalı Mah., güneybatı aksı; ana+ortaokul; iç havuz, laboratuvar, sanat: doğrulandı.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Kesin kampüs açılış yılı ve 2026–27 kampüs fiyatı açık kaynakta net değil — doğrudan teyit alın.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Kampüse özel LGS kanıtı yok; STEM+A zincir modeli. Franchise değişkenliği yüksek.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://okul.com.tr/ortaokul/ankara/ozel-cayyolu-bahcesehir-koleji-ortaokulu-13574" target="_blank" rel="noopener">Bahçeşehir Çayyolu (okul.com.tr)</a> · <a href="https://www.bahcesehir.k12.tr/tr/mekan-detay/70" target="_blank" rel="noopener">Kampüs sayfası</a> · <a href="http://www.kamilulker.com/en/project/bahcesehir-koleji-cayyolu-kampusu" target="_blank" rel="noopener">Kampüs mimari projesi</a></p>
+      </div>
+      <div class="subscore-grid">
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.8</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>8.7</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.7</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>8.4</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.6</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.7</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.6</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>7.8</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.7</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>7.5</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.0</strong></td></tr></tbody></table>
+          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>8.6</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>8.4</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>7.0</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-14">
+      <div class="school-head">
+        <div><span class="rank-pill">#14</span><h3>Bilfen Çayyolu</h3> <span class="newbadge">YENİ EKLENEN</span><div class="muted">Çayyolu, Çankaya</div></div>
+        <div class="big-score">6.60<span>/10</span><small>Rasyonellik · Eğitim 6.44</small></div>
+      </div>
+      <p class="verdict">YENİ EKLENEN. Sıkı, sınav-odaklı akademik model ve güçlü zincir itibarı; ana+ortaokul, Çayyolu (güneybatı), Fen Lisesi dahil. Ancak Ankara kampüsüne özel LGS kanıtı yok (zincir rakamları toplama; aramalar kardeş marka Bilnet'i getiriyor). Yüksek akademik baskı.</p>
+      <div class="metrics">
+        <div><span>LGS</span><strong>5.2</strong><small style="color:#9a6416">Kanıt yok · genç/zincir</small></div>
+        <div><span>Kişisel gelişim</span><strong>7.00</strong><small>baskı −1,20</small></div>
+        <div><span>Fiziksel kampüs</span><strong>8.3</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>7.80</strong></div>
+        <div><span>Maliyet</span><strong>6.99</strong><small>~1,3–1,6 M ₺ all-in</small></div>
+        <div><span>Eğitim skoru</span><strong>6.44</strong></div>
+      </div>
+      <div class="lgsbox" style="border-left-color:#9a6416;background:#fbf1e0">
+        <h4 style="color:#9a6416">LGS kanıtı — 5 yıllık haber taraması (Kanıt yok · genç/zincir)</h4>
+        <p>Güçlü ulusal akademik marka (zincir 2025'te 49 Türkiye 1.'si) ama <b>Ankara/Çayyolu kampüsüne özel LGS kanıtı yok</b>; “Bilfen Ankara LGS” aramaları tekrar tekrar kardeş marka <b>Bilnet-Yenimahalle</b> sonuçlarını getiriyor (Bilfen Ankara kampüsü kendi ayrı LGS basınını üretmiyor). Sıkı, sınav-odaklı model itibarı gerçek; kampüs bazında doğrulanamadı.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> Marka 1988 (~38 yıl); olgun Çayyolu kampüsü (≥6 yıl → uygun); ana+ortaokul + Fen Lisesi; güneybatı aksı: doğrulandı.</li><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> Maliyet: Bilfen Çayyolu ortaokul 2025–26 ~520–856 bin ₺/çocuk (KDV dahil); iki çocuk all-in ~1,3–1,6 M ₺ + yemek/servis.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> Kampüse özel LGS kanıtı yok (zincir toplamı; aramalar Bilnet-Yenimahalle'yi getiriyor). Yüksek akademik baskı/disiplin itibarı — bütünsel denge arayan aile için uyum riski.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://bilfen.com/tr/ortaokul/okullarimiz/bilfen-ankara-cayyolu-ortaokulu" target="_blank" rel="noopener">Bilfen Çayyolu ortaokul</a> · <a href="https://www.dogruokul.com/okul/ozel-okullar/bilfen-ankara-cayyolu-kampusu/6136" target="_blank" rel="noopener">Kampüs profili (dogruokul)</a> · <a href="https://www.aa.com.tr/tr/egitim/bilfende-okuyan-49-ogrenci-2025-lgs-sinavinda-birinci-oldu/3628356" target="_blank" rel="noopener">2025 zincir: 49 Türkiye 1.&#x27;si</a></p>
+      </div>
+      <div class="subscore-grid">
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.2</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>8.3</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>7.8</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.2</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>8.6</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>7.9</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.0</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>7.8</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>8.3</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>8.3</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.7</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>7.6</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.2</strong></td></tr></tbody></table>
+          <h4>Maliyet rasyonalitesi alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>7.0</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>7.2</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>6.5</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
+    <section class="school-card" id="okul-15">
+      <div class="school-head">
+        <div><span class="rank-pill">#15</span><h3>Zafer Koleji</h3><div class="muted">Çayyolu / Etimesgut</div></div>
+        <div class="big-score">6.45<span>/10</span><small>Rasyonellik · Eğitim 6.70</small></div>
+      </div>
+      <p class="verdict">Kampüs ve laboratuvar/spor altyapısı olağanüstü ve bağımsız kaynaklarca doğrulandı (kapalı+açık havuz, buz pisti, robotik/3D lab, sera). Yoğun etüt-deneme modeli; ancak LGS'yi kendi çıktısı değil burs için kullanıyor (IB/AP ekseni). Yüksek/belirsiz maliyet.</p>
+      <div class="metrics">
+        <div><span>LGS</span><strong>5.5</strong><small style="color:#5b4b8a">Farklı eksen · LGS dışı</small></div>
+        <div><span>Kişisel gelişim</span><strong>7.51</strong><small>baskı −1,50</small></div>
+        <div><span>Fiziksel kampüs</span><strong>9.8</strong><small>KG'nin %10'u</small></div>
+        <div><span>Sosyo-kültürel</span><strong>7.48</strong></div>
+        <div><span>Maliyet</span><strong>5.70</strong><small>~1,8–2,2 M ₺ all-in (tahmini)</small></div>
+        <div><span>Eğitim skoru</span><strong>6.70</strong></div>
+      </div>
+      <div class="lgsbox" style="border-left-color:#5b4b8a;background:#efecf7">
+        <h4 style="color:#5b4b8a">LGS kanıtı — 5 yıllık haber taraması (Farklı eksen · LGS dışı)</h4>
+        <p>IB + AP uluslararası track okulu; sitesinde LGS'yi neredeyse yalnız <b>gelen öğrenciye burs oranı belirlemek</b> için kullanıyor (“2026 LGS sonucuna göre burs oranları”) — yani yüksek puanlıyı <b>çekiyor</b>, kendi üretimini reklamlamıyor. Bağımsız haber/derece/tam-puan kanıtı yok. LGS ekseninde <b>belgesiz</b>; IB/AP ekseninde yarışıyor.</p>
+      </div>
+      <div class="verify">
+        <h4>Doğrulama ve uyarılar</h4>
+        <ul class="vlist"><li><span class="vb" style="color:#176b52;background:#e7f3ee">✓ Doğrulandı</span> 1987 kuruluş (Zafer Yayınları kökeni), Çayyolu/Etimesgut kampüsü 2014; ana+ortaokul; IB+AP, robotik (VEX/FLL); kampüs 9.8 fazlasıyla destekleniyor: doğrulandı.</li><li><span class="vb" style="color:#9a6416;background:#fbf1e0">⚠ Uyarı</span> LGS'yi burs oranı için kullanıyor; kendi tam-puan/derece kanıtı yok. Açık 2026–27 fiyatı bulunamadı; ~1,8–2,2 M ₺ belirsiz.</li><li><span class="vb" style="color:#2a556e;background:#eaf1f5">ⓘ Not</span> Yayıncı kökeni (kurum içi kitap satışı) ticari boyut; ücret iadesi/telefon toplama şikâyetleri mevcut.</li></ul>
+        <p class="srcline"><strong>Kaynaklar:</strong> <a href="https://zaferkoleji.com.tr/tarihcemiz/" target="_blank" rel="noopener">Tarihçe</a> · <a href="https://okul.com.tr/ortaokul/ankara/ozel-ankara-zafer-koleji-ortaokulu-16062" target="_blank" rel="noopener">Ortaokul (okul.com.tr)</a> · <a href="https://zaferkoleji.com.tr/" target="_blank" rel="noopener">Zafer Koleji (IB/AP + burs)</a></p>
+      </div>
+      <div class="subscore-grid">
+        <div><h4>Kişisel gelişim alt kriterleri</h4>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>PDR / sosyal-duygusal gelişim</td><td>18%</td><td><strong>8.8</strong></td></tr><tr><td>Spor</td><td>13,5%</td><td><strong>9.4</strong></td></tr><tr><td>Sanat &amp; yaratıcılık</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Kulüp &amp; extracurricular</td><td>13,5%</td><td><strong>8.8</strong></td></tr><tr><td>Bağımsız düşünme / problem çözme</td><td>13,5%</td><td><strong>9.0</strong></td></tr><tr><td>Bireyselleştirme &amp; yetenek keşfi</td><td>9%</td><td><strong>8.7</strong></td></tr><tr><td>İletişim &amp; liderlik</td><td>4,5%</td><td><strong>8.7</strong></td></tr><tr><td>Sosyal sorumluluk &amp; dünya görüşü</td><td>4,5%</td><td><strong>8.6</strong></td></tr><tr><td>Kampüsün fiziki şartları</td><td>10%</td><td><strong>9.8</strong></td></tr></tbody></table></div>
+        <div><h4>Sosyo-kültürel ekosistem alt kriterleri</h4>
           <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Eğitim / entelektüel sermaye</td><td>35%</td><td><strong>8.0</strong></td></tr><tr><td>Sosyoekonomik çeşitlilik</td><td>25%</td><td><strong>7.0</strong></td></tr><tr><td>Burs / erişilebilirlik</td><td>20%</td><td><strong>7.5</strong></td></tr><tr><td>Düşük statü-tüketim kültürü riski</td><td>20%</td><td><strong>7.2</strong></td></tr></tbody></table>
           <h4>Maliyet rasyonalitesi alt kriterleri</h4>
-          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>4.8</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>6.7</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>6.0</strong></td></tr></tbody></table>
-        </div>
-      </div></section>
+          <table class="mini score-detail"><thead><tr><th>Alt kriter</th><th>Ağ.</th><th>Puan</th></tr></thead><tbody><tr><td>Toplam maliyet yükü</td><td>50%</td><td><strong>4.9</strong></td></tr><tr><td>Fiyat / sağlanan eğitim değeri</td><td>35%</td><td><strong>6.7</strong></td></tr><tr><td>Ücret şeffaflığı / öngörülebilirlik</td><td>15%</td><td><strong>6.0</strong></td></tr></tbody></table></div>
+      </div>
+    </section>
 
 <section class="card">
 <h2>Karar notu</h2>
-<p><strong>Bu çalışma kesin okul kalitesi sıralaması değildir.</strong> Özellikle LGS okul ortalamaları, ilk %1/%5 öğrenci oranları, öğretmen sirkülasyonu ve gerçek 8. sınıf haftalık deneme/ödev yükü tüm okullarda kamuya açık değildir. Okul ziyaretlerinde bu veriler alınırsa skorlar yeniden hesaplanmalıdır.</p>
-<p>Mevcut verilerle <strong>Maya İncek</strong> en güçlü kalite/maliyet dengesi; <strong>ODTÜ GVO</strong> en güçlü bütünsel eğitim ortamlarından biri; <strong>Bilkent</strong> çok güçlü akademik-kültürel çevre fakat yüksek maliyetli; <strong>TED</strong> saf kalite ve kampüs bakımından lider grupta ancak iki çocuk için ekonomik filtre en ağır seçeneklerden biridir.</p>
+<p>Mevcut kanıtlarla: <strong>ODTÜ GVO</strong> en dengeli bütünsel profil (kohort-gücü LGS modeli, tek zayıflığı maliyet); <strong>TED</strong> ve <strong>Jale Tezer</strong> LGS'de kanıtlı lider grup (TED yüksek maliyetli, Jale Tezer yüksek baskı); <strong>Maya</strong> ve <strong>MEV</strong> en güçlü maliyet/değer dengesi (LGS'de kanıt zayıf); <strong>İDV Bilkent</strong> en güçlü entelektüel çevre ve üniversite bağı (LGS'ye girmez, farklı eksen); <strong>ANKÜ</strong> erişilebilirlik ve aile çeşitliliğinde önde. <strong>Yüce</strong> bir IB Continuum okulu olarak bu LGS-ağırlıklı modelde düşük, ama IB/uluslararası eksende çok yüksek sıralanır. Zincir kampüsler (<strong>Bahçeşehir, Bilfen</strong>) kampüse özel LGS kanıtı bulunmadığı için temkinli konumlandı.</p>
+<p><strong>Somut sonraki adım:</strong> kısa listenizdeki 3–4 okuldan <strong>yazılı 2026–27 ücret teklifi</strong> (eğitim+yemek+servis+etüt+kitap) ve <strong>kampüse özel LGS/derece föyü</strong> isteyin; Maya için birinci elden teklifin liste fiyatına göre indirim kaynağını, Bahçeşehir/Bilfen için <strong>kampüse özel</strong> (zincir değil) LGS sonucunu, Bilkent için <strong>Türkçe track mı BLIS mi</strong> olduğunu netleştirin.</p>
 </section>
 
-<div class="footer">Güncelleme: 21 Ağustos 2026 · Gökkuşağı listede değil · Fiziksel kampüs kişisel gelişimin %10'u · Akademik baskı cezası 1,5×</div>
+<section class="card">
+<h2>Kaynak eki (okul bazında)</h2>
+<p class="muted">Kullanılan başlıca birincil ve ikincil kaynaklar. LGS okul ortalamaları yapısal olarak kamuya açık olmadığından, LGS iddiaları okulların kendi açıklamalarına ve seyrek yerel habere dayanır ve bağımsız olarak tam doğrulanamaz.</p>
+<div class="srcblock"><h4>#1 Maya İncek</h4><ul><li><a href="https://www.maya.k12.tr/maya-ozel-okullari-ankara-incek-golbasi-kampusu/" target="_blank" rel="noopener">Maya İncek kampüs</a></li><li><a href="https://okul.com.tr/lise/ankara/ozel-maya-okullari-incek-anadolu-lisesi-15722" target="_blank" rel="noopener">LGS burs merdiveni (okul.com.tr)</a></li><li><a href="https://www.birgun.net/haber/ozel-okullar-sorusturmasinda-dikkat-ceken-isim-ziya-selcuk-un-kurucusu-oldugu-okul-da-listede-417293" target="_blank" rel="noopener">Rekabet soruşturması haberi</a></li></ul></div><div class="srcblock"><h4>#2 MEV Ankara</h4><ul><li><a href="https://www.mev.org.tr/sayfa/mev-koleji-tarihce" target="_blank" rel="noopener">MEV tarihçe</a></li><li><a href="https://mevkolejiankara.k12.tr/2026-2027-egitim-ogretim-yili-ucretleri/" target="_blank" rel="noopener">2026-27 ücretler</a></li><li><a href="https://mevkolejiankara.k12.tr/lgs-basarimiz/" target="_blank" rel="noopener">LGS başarımız (erişime kapalı)</a></li></ul></div><div class="srcblock"><h4>#3 Jale Tezer</h4><ul><li><a href="https://www.jaletezer.k12.tr/tarihce" target="_blank" rel="noopener">Tarihçe</a></li><li><a href="https://www.jaletezer.k12.tr/haber/lgs-2026-turkiye-1incisi" target="_blank" rel="noopener">LGS 2026 Türkiye 1.&#x27;si</a></li><li><a href="https://www.jaletezer.k12.tr/akademik-ve-bilimsel-basarilarimiz2024" target="_blank" rel="noopener">2025 şampiyonlar</a></li></ul></div><div class="srcblock"><h4>#4 ODTÜ GVO</h4><ul><li><a href="https://www.odtugvo.k12.tr/tr/page/kurumsal/8/tarihcemiz" target="_blank" rel="noopener">Tarihçe</a></li><li><a href="https://www.odtugvo.k12.tr/ankara/pdf/okul_ucretleri_2026-27_ANKARA_y.pdf" target="_blank" rel="noopener">2026-27 ücret PDF</a></li><li><a href="https://www.odtugvkocaeli.k12.tr/odtu-gv-ozel-kyod-ortaokulu-lgs-basarilarina-bir-yenisini-daha-ekledi/" target="_blank" rel="noopener">Kardeş kampüs LGS raporlaması (yüzdelik)</a></li></ul></div><div class="srcblock"><h4>#5 İDV Bilkent</h4><ul><li><a href="https://obi.bilkent.edu.tr/index.php/tarihcemiz/" target="_blank" rel="noopener">Tarihçe</a></li><li><a href="https://obi.bilkent.edu.tr/index.php/2026-2027-egitim-ucretimiz/" target="_blank" rel="noopener">2026-27 eğitim ücreti</a></li><li><a href="https://obi.bilkent.edu.tr/" target="_blank" rel="noopener">Ortaokul (IB, LGS içeriği yok)</a></li></ul></div><div class="srcblock"><h4>#6 ANKÜ GVO</h4><ul><li><a href="https://ankugvo.k12.tr/ortaokul/test/tarihcemiz/" target="_blank" rel="noopener">Tarihçe</a></li><li><a href="https://ankugvo.k12.tr/2026-2027-akademik-yili-egitim-yemek-ucretleri-ve-indirim-yonergesi/" target="_blank" rel="noopener">2026-27 ücret ilanı</a></li><li><a href="https://ankugvo.k12.tr/ortaokul/" target="_blank" rel="noopener">Ortaokul (LGS pazarlaması yok)</a></li></ul></div><div class="srcblock"><h4>#7 TED Ankara</h4><ul><li><a href="https://www.tedankara.k12.tr/index.php/tr/tarihce" target="_blank" rel="noopener">Tarihçe</a></li><li><a href="https://www.tedankara.k12.tr/index.php/tr/ortaokul/ortaokul-haber/235-oegrencilerimiz-batu-peynircioglu-ve-kuzey-hosafci-lgs-tuerkiye-birincisi-oldular" target="_blank" rel="noopener">2024: 2 Türkiye 1.&#x27;si</a></li><li><a href="https://www.tedankara.k12.tr/index.php/en/haberler/526-oegrencimiz-zeynep-akkocaoglu-lgs-tuerkiye-birincisi-oldu" target="_blank" rel="noopener">2025: 1 Türkiye 1.&#x27;si</a></li></ul></div><div class="srcblock"><h4>#8 Nesibe Aydın</h4><ul><li><a href="https://nesibeaydin.k12.tr/web/okullarimiz/golbasi-kampusu/" target="_blank" rel="noopener">Gölbaşı kampüsü</a></li><li><a href="https://www.merhabahaber.com/nesibe-aydindan-lgsde-buyuk-basari-1707281h.htm" target="_blank" rel="noopener">2019 yüzdelik verisi (yerel haber)</a></li><li><a href="https://nesibeaydin.k12.tr/web/basarilarimiz/2025-2/" target="_blank" rel="noopener">2025 başarıları</a></li></ul></div><div class="srcblock"><h4>#9 Beştepe</h4><ul><li><a href="https://www.bestepekoleji.com/bestepe-koleji/" target="_blank" rel="noopener">Beştepe Koleji</a></li><li><a href="https://www.bestepekoleji.com/nazar-boncuklu-lgs-basarisi-2/" target="_blank" rel="noopener">2026 kohort verisi</a></li><li><a href="https://www.eleman.net/is-rehberi/maaslar-ve-ucretler/bestepe-koleji-fiyatlari-h17613" target="_blank" rel="noopener">2025-26 ücretler</a></li></ul></div><div class="srcblock"><h4>#10 Arı Okulları</h4><ul><li><a href="https://www.ariokullari.k12.tr/" target="_blank" rel="noopener">Arı Okulları</a></li><li><a href="https://www.ariokullari.k12.tr/basarilar/" target="_blank" rel="noopener">Başarılar (LGS dışı ağırlıklı)</a></li><li><a href="https://www.hurriyet.com.tr/haberleri/ari-okullari" target="_blank" rel="noopener">Hürriyet Arı haber arşivi</a></li></ul></div><div class="srcblock"><h4>#11 Yüce Okulları</h4><ul><li><a href="https://www.yuce.k12.tr/hakkimizda/yuce-okullari-tarihce" target="_blank" rel="noopener">Tarihçe</a></li><li><a href="https://yuce.k12.tr/" target="_blank" rel="noopener">Yüce Okulları (IB continuum)</a></li><li><a href="https://okul.com.tr/kolejler/yuce-okullari-145" target="_blank" rel="noopener">okul.com.tr profili</a></li></ul></div><div class="srcblock"><h4>#12 Bahçeşehir İncek</h4><ul><li><a href="https://okul.com.tr/ilkokul/ankara/ozel-ankara-incek-bahcesehir-koleji-ilkokulu-2178" target="_blank" rel="noopener">Bahçeşehir İncek (okul.com.tr)</a></li><li><a href="https://bahcesehir.k12.tr/haberler/262/lgsde-bahcesehir-kolejinden-73-birinci" target="_blank" rel="noopener">2024 zincir: 73 birinci</a></li><li><a href="https://www.dha.com.tr/egitim/lgsde-bahcesehir-kolejinden-72-ogrenci-500-tam-puan-aldi-2676746" target="_blank" rel="noopener">2025 zincir; Ankara öğrencisi &#x27;50. Yıl&#x27; kampüsünden</a></li></ul></div><div class="srcblock"><h4>#13 Bah. Çayyolu</h4><ul><li><a href="https://okul.com.tr/ortaokul/ankara/ozel-cayyolu-bahcesehir-koleji-ortaokulu-13574" target="_blank" rel="noopener">Bahçeşehir Çayyolu (okul.com.tr)</a></li><li><a href="https://www.bahcesehir.k12.tr/tr/mekan-detay/70" target="_blank" rel="noopener">Kampüs sayfası</a></li><li><a href="http://www.kamilulker.com/en/project/bahcesehir-koleji-cayyolu-kampusu" target="_blank" rel="noopener">Kampüs mimari projesi</a></li></ul></div><div class="srcblock"><h4>#14 Bilfen Çayyolu</h4><ul><li><a href="https://bilfen.com/tr/ortaokul/okullarimiz/bilfen-ankara-cayyolu-ortaokulu" target="_blank" rel="noopener">Bilfen Çayyolu ortaokul</a></li><li><a href="https://www.dogruokul.com/okul/ozel-okullar/bilfen-ankara-cayyolu-kampusu/6136" target="_blank" rel="noopener">Kampüs profili (dogruokul)</a></li><li><a href="https://www.aa.com.tr/tr/egitim/bilfende-okuyan-49-ogrenci-2025-lgs-sinavinda-birinci-oldu/3628356" target="_blank" rel="noopener">2025 zincir: 49 Türkiye 1.&#x27;si</a></li></ul></div><div class="srcblock"><h4>#15 Zafer Koleji</h4><ul><li><a href="https://zaferkoleji.com.tr/tarihcemiz/" target="_blank" rel="noopener">Tarihçe</a></li><li><a href="https://okul.com.tr/ortaokul/ankara/ozel-ankara-zafer-koleji-ortaokulu-16062" target="_blank" rel="noopener">Ortaokul (okul.com.tr)</a></li><li><a href="https://zaferkoleji.com.tr/" target="_blank" rel="noopener">Zafer Koleji (IB/AP + burs)</a></li></ul></div>
+</section>
+
+<div class="footer">Ankara Özel Okul Rasyonellik Raporu · 2026–2027 · 15 okul · Kabul kriteri: kurum ≥10 yıl, kampüs ≥6 yıl · Fiziksel kampüs kişisel gelişimin %10'u · Akademik baskı cezası 1,5× · LGS son 5 yılın haberlerinden çıkarımlanmıştır · Puanlar karar-destek indeksidir, ölçülmüş veri değildir</div>
 </div>
 </body>
 </html>
